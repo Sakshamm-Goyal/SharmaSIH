@@ -5,9 +5,7 @@ import { Footer, Thumbnail } from '../components';
 import { useData, useGAEventTracker } from '../hooks';
 
 function Quizzes() {
-  const gaEventTracker = useGAEventTracker('Quiz Thumbnail');
-
-  const { loading, error, data } = useData('topics');
+  const { loading, error, data } = useData('../database/QuizzyDatabase.json');
   const [shuffledData, setShuffledData] = useState([]);
 
   useEffect(() => {
@@ -42,7 +40,6 @@ function Quizzes() {
                   <Thumbnail id={topic.topicID} noq={topic.noq} title={topic.title} type="quiz" />
                 </Link>
               ) : (
-                // eslint-disable-next-line jsx-a11y/no-static-element-interactions
                 <div
                   key={index}
                   className="w-full"

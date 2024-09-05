@@ -1,41 +1,34 @@
-import { get, getDatabase, orderByKey, query, ref } from 'firebase/database';
 import { useEffect, useState } from 'react';
 
-export default function useData(address) {
+export default function useData(filePath) {
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);  // Better to use null for error state
+  const [error, setError] = useState(null);
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    // Fetch data from Firebase database
-    async function fetchTopics() {
-      const db = getDatabase();
-      const dataRef = ref(db, address);
-      const dataQuery = query(dataRef, orderByKey());
-
+    async function fetchData() {
       try {
         setLoading(true);
-        setError(null);  // Reset error state before fetching
+        setError(null);
 
-        // Request to Firebase database
-        const snapshot = await get(dataQuery);
-        setLoading(false);
-
-        if (snapshot.exists()) {
-          // Ensure data is processed correctly
-          setData(Object.values(snapshot.val()));  // Reset data, assuming new data replaces old
-        } else {
-          setData([]);  // Handle case where no data exists
+        const response = await fetch(filePath);
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
         }
+
+        const jsonData = await response.json();
+        setData(Object.values(jsonData.topics)); // Assuming you want to access "topics" data
+
+        setLoading(false);
       } catch (err) {
         setLoading(false);
-        setError(err);  // Set the actual error object for better debugging
-        console.error("Error fetching data:", err);  // Log error to console
+        setError(err);
+        console.error('Error fetching data:', err);
       }
     }
 
-    fetchTopics();
-  }, [address]);  // Dependency on address means hook will refetch when address changes
+    fetchData();
+  }, [filePath]);
 
   return { loading, error, data };
 }

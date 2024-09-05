@@ -1,4 +1,3 @@
-import { get, getDatabase, orderByKey, query, ref } from 'firebase/database';
 import { useEffect, useState } from 'react';
 
 export default function useQuiz(topicID) {
@@ -7,22 +6,27 @@ export default function useQuiz(topicID) {
   const [quiz, setQuiz] = useState([]);
 
   useEffect(() => {
-    // Fetch question-answer sets from database
+    // Fetch question-answer sets from QuizzyDatabase.json
     async function fetchQuestions() {
-      const db = getDatabase();
-      const quizRef = ref(db, `quizzes/${topicID}/questions`);
-      const quizQuery = query(quizRef, orderByKey());
-
       try {
         setError(false);
         setLoading(true);
 
-        // Request to firebase database
-        const snapshot = await get(quizQuery);
+        // Fetch the quiz data from the local JSON file
+        const response = await fetch(`/QuizzyDatabase.json`);
+        if (!response.ok) {
+          throw new Error('Failed to fetch quiz data');
+        }
+        const data = await response.json();
+
         setLoading(false);
 
-        if (snapshot.exists())
-          setQuiz((prevQuestions) => [...prevQuestions, ...Object.values(snapshot.val())]);
+        // Check if the data has the expected structure
+        if (data && data.quizzes && data.quizzes[topicID] && data.quizzes[topicID].questions) {
+          setQuiz(data.quizzes[topicID].questions);
+        } else {
+          setError(true);
+        }
       } catch (err) {
         setLoading(false);
         setError(true);

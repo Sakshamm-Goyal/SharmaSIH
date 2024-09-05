@@ -13,7 +13,7 @@ function Footer() {
           <Link className="flex items-center" to="/">
             <img alt="Cuizzy Logo" className="mr-1 h-8 rounded-full sm:h-9" src={logo} />
             <span className="self-center whitespace-nowrap text-xl font-semibold text-primary sm:text-2xl">
-              Cuizzy
+              Sahayak
             </span>
           </Link>
         </div>
@@ -69,13 +69,13 @@ function Footer() {
               target="_blank"
               onClick={() => gaEventTracker({ label: 'Shibam Saha' })}
             >
-              Shibam Saha.
+              TeamError404.
             </a>
           </span>
           <span>
             © 2023{' '}
             <Link className="hover:underline" to="/">
-              Cuizzy.
+              Sahayak.
             </Link>
             &ensp;All Rights Reserved.
           </span>

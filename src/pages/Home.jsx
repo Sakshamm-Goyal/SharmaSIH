@@ -1,10 +1,28 @@
-import { useState } from 'react';
-
+import { useEffect, useState } from 'react';
 import { coding, hero } from '../assets';
 import { BasicInfo, ContactUs, Footer, PopularQuizzes } from '../components';
 
 function Home() {
   const [imageLoaded, setImageLoaded] = useState(false);
+
+  useEffect(() => {
+    // Inject the chatbot script when the component is mounted
+    const script1 = document.createElement('script');
+    script1.src = "https://cdn.botpress.cloud/webchat/v2.1/inject.js";
+    script1.async = true;
+    document.body.appendChild(script1);
+
+    const script2 = document.createElement('script');
+    script2.src = "https://mediafiles.botpress.cloud/1b9ad40f-0228-4157-9da1-f301289ab07b/webchat/v2.1/config.js";
+    script2.async = true;
+    document.body.appendChild(script2);
+
+    // Cleanup function to remove the script when the component unmounts
+    return () => {
+      document.body.removeChild(script1);
+      document.body.removeChild(script2);
+    };
+  }, []);
 
   return (
     <div

@@ -1,4 +1,3 @@
-import { child, get, getDatabase, push, ref, update } from 'firebase/database';
 import _ from 'lodash';
 import { useCallback, useEffect, useMemo, useReducer, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
@@ -7,7 +6,6 @@ import { PageNotFound } from './';
 
 import { AnswerBox, ProgressBar, Rules } from '../components';
 import { useAuth } from '../contexts/AuthContext';
-import { useQuiz } from '../hooks';
 
 const initialState = null;
 
@@ -27,7 +25,6 @@ const reducer = (state, action) => {
       question[action.questionID].options[action.optionIndex].checked = action.value;
       return question;
     }
-
     default:
       return state;
   }
@@ -35,7 +32,9 @@ const reducer = (state, action) => {
 
 function Quiz() {
   const { id } = useParams();
-  const { loading, error, quiz } = useQuiz(id);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(false);
+  const [quiz, setQuiz] = useState([]);
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [qnaSet, dispatch] = useReducer(reducer, initialState);
   const { currentUser } = useAuth();
@@ -43,10 +42,44 @@ function Quiz() {
   const date = useMemo(() => new Date(), []);
 
   useEffect(() => {
-    dispatch({
-      type: 'quiz',
-      value: quiz
-    });
+    async function fetchQuizData() {
+      try {
+        setLoading(true);
+        setError(false);
+
+        // Fetch the quiz data from the JSON file using a relative path
+        const response = await fetch(`${process.env.PUBLIC_URL}/../database/QuizzyDatabase.json`);
+        if (!response.ok) {
+          throw new Error('Failed to fetch quiz data');
+        }
+
+        const data = await response.json();
+
+        // Ensure data structure is correct
+        if (data && data.quizzes && data.quizzes[id] && data.quizzes[id].questions) {
+          setQuiz(data.quizzes[id].questions);
+        } else {
+          setError(true);
+        }
+
+        setLoading(false);
+      } catch (error) {
+        console.error('Error fetching quiz data:', error);
+        setError(true);
+        setLoading(false);
+      }
+    }
+
+    fetchQuizData();
+  }, [id]);
+
+  useEffect(() => {
+    if (quiz.length > 0) {
+      dispatch({
+        type: 'quiz',
+        value: quiz,
+      });
+    }
   }, [quiz]);
 
   // Answer option selection
@@ -56,7 +89,7 @@ function Quiz() {
         type: 'answer',
         questionID: currentQuestion,
         optionIndex: index,
-        value: e.target.checked
+        value: e.target.checked,
       });
     },
     [dispatch, currentQuestion]
@@ -76,7 +109,7 @@ function Quiz() {
   // Progress percentage
   const progressPercentage = qnaSet?.length > 0 ? ((currentQuestion + 1) * 100) / qnaSet.length : 0;
 
-  // Submit Quiz and store result in the database
+  // Submit Quiz and handle logic here (without Firebase)
   const submitQuiz = useCallback(async () => {
     function getMarkSheet() {
       let correctAnswersCount = 0;
@@ -135,34 +168,12 @@ function Quiz() {
       qnaSet: { ...qnaSet }
     };
 
-    const { uid } = currentUser;
-    const db = getDatabase();
-    const submissionsKey = push(child(ref(db), `submissions/${uid}`)).key;
-    const submissionsData = {};
+    // You can handle local storage or another storage solution here
+    console.log('Quiz submitted:', markSheetObject);
 
-    submissionsData[`submissions/${uid}/${submissionsKey}`] = markSheetObject;
-    try {
-      // Update submission data in the database
-      await update(ref(db), submissionsData);
-
-      // Manually increase submission count
-      const submissionCountRef = ref(db, 'submissionCount');
-      const snapshot = await get(submissionCountRef);
-      if (snapshot.exists()) {
-        const currentSubmissionCount = snapshot.val()[id] || 0;
-        const updatedSubmissionCount = currentSubmissionCount + 1;
-
-        await update(submissionCountRef, {
-          [id]: updatedSubmissionCount
-        });
-      }
-
-      // Navigate to the result page
-      navigate(`/result/${id}`, { state: { qnaSet, markSheetObject } });
-    } catch (error) {
-      console.error('Error submitting quiz:', error);
-    }
-  }, [currentUser, date, id, navigate, qnaSet]);
+    // Navigate to the result page
+    navigate(`/result/${id}`, { state: { qnaSet, markSheetObject } });
+  }, [id, navigate, qnaSet, date]);
 
   return (
     <>

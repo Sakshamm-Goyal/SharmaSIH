@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import './Topic.css'; // Ensure this file contains the necessary styles
 import { FiPlus } from 'react-icons/fi';
+import { useNavigate } from 'react-router-dom';
 import { FaVrCardboard } from 'react-icons/fa'; // Import VR icon
 
 function Topic() {
@@ -14,6 +15,7 @@ function Topic() {
   const [newAnswer, setNewAnswer] = useState('');
   const videoRef = useRef(null);
   const playerRef = useRef(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     window.onYouTubeIframeAPIReady = () => {
@@ -46,8 +48,7 @@ function Topic() {
   };
 
   const handleStartQuiz = () => {
-    // Navigate to the quiz page or show a quiz modal
-    console.log('Start your quiz!');
+    navigate('/quiz/Heart');
   };
 
   const handleVrClick = () => {
@@ -87,7 +88,7 @@ function Topic() {
           {/* Timestamps */}
           <div className="sidebar-header">
             <h2 className="text-xl font-bold mb-4">Timestamps</h2>
-            <button className="vr-btn vr-btn-in-sidebar" onClick={handleVrClick}>
+            <button className="-border" onClick={handleVrClick}>
               <FaVrCardboard className="vr-icon" />
               VR
             </button>

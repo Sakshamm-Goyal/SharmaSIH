@@ -1,9 +1,8 @@
 import _ from 'lodash';
 import { useCallback, useEffect, useMemo, useReducer, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-
+import quizData from '../../src/data/quizData.json'; // Adjust path as necessary
 import { PageNotFound } from './';
-
 import { AnswerBox, ProgressBar, Rules } from '../components';
 import { useAuth } from '../contexts/AuthContext';
 
@@ -42,45 +41,28 @@ function Quiz() {
   const date = useMemo(() => new Date(), []);
 
   useEffect(() => {
-    async function fetchQuizData() {
-      try {
-        setLoading(true);
-        setError(false);
+    // Use the imported quizData directly
+    try {
+      setLoading(true);
+      setError(false);
 
-        // Fetch the quiz data from the JSON file using a relative path
-        const response = await fetch(`${process.env.PUBLIC_URL}/../database/QuizzyDatabase.json`);
-        if (!response.ok) {
-          throw new Error('Failed to fetch quiz data');
-        }
+      // Ensure data structure is correct
+      const data = quizData;
 
-        const data = await response.json();
-
-        // Ensure data structure is correct
-        if (data && data.quizzes && data.quizzes[id] && data.quizzes[id].questions) {
-          setQuiz(data.quizzes[id].questions);
-        } else {
-          setError(true);
-        }
-
-        setLoading(false);
-      } catch (error) {
-        console.error('Error fetching quiz data:', error);
+      if (data && data.quizzes && data.quizzes[id] && data.quizzes[id].questions) {
+        setQuiz(data.quizzes[id].questions);
+        dispatch({ type: 'quiz', value: data.quizzes[id].questions });
+      } else {
         setError(true);
-        setLoading(false);
       }
-    }
 
-    fetchQuizData();
+      setLoading(false);
+    } catch (error) {
+      console.error('Error processing quiz data:', error);
+      setError(true);
+      setLoading(false);
+    }
   }, [id]);
-
-  useEffect(() => {
-    if (quiz.length > 0) {
-      dispatch({
-        type: 'quiz',
-        value: quiz,
-      });
-    }
-  }, [quiz]);
 
   // Answer option selection
   const handleAnswerChange = useCallback(

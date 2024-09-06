@@ -2,11 +2,13 @@ import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 
 import { DetailedReport, ResultSummary } from '../components';
+import CongratulationsModal from '../components/atoms/CongratulationsModal'; // Import the modal
 
 function Result() {
   const location = useLocation();
   const { qnaSet, markSheetObject } = location.state;
   const [showAnswers, setShowAnswers] = useState(false);
+  const [showModal, setShowModal] = useState(true); // State to control modal visibility
 
   const {
     noq,
@@ -21,6 +23,8 @@ function Result() {
 
   return (
     <div className="mx-auto mb-20 w-[90%] animate-reveal">
+      {showModal && <CongratulationsModal onClose={() => setShowModal(false)} />}
+
       {qnaSet?.length > 0 && (
         <>
           <ResultSummary

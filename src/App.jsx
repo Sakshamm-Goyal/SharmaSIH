@@ -36,8 +36,7 @@ import {
   Submissions,
   Video,
   Topic,
-  PostSignInPage,
-  Message
+  PostSignInPage
 } from './pages';
 
 
@@ -54,7 +53,6 @@ function Root() {
           <Route element={<About />} path="/about" />
           <Route element={<Reset />} path="/reset" />
           <Route element={<Learn />} path="/learn" />
-          <Route element={<Message />} path="/message" />
           <Route path="/topic/:topicName" element={<Topic />} />
           <Route element={<PublicOutlet />} path="/">
             <Route element={<SignUp />} path="signup" />

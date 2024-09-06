@@ -1,93 +1,290 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import React, { useState, useEffect, useRef } from 'react';
+import './Topic.css'; // Ensure this file contains the necessary styles
+import { FiPlus } from 'react-icons/fi';
+import { FaVrCardboard } from 'react-icons/fa'; // Import VR icon
 
 function Topic() {
-  const [selectedSteps, setSelectedSteps] = useState([]);
-  const navigate = useNavigate();
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const [activeTab, setActiveTab] = useState('overview');
+  const [openSections, setOpenSections] = useState([]);
+  const [notes, setNotes] = useState([]);
+  const [newNote, setNewNote] = useState('');
+  const [questions, setQuestions] = useState([]);
+  const [newQuestion, setNewQuestion] = useState('');
+  const [newAnswer, setNewAnswer] = useState('');
+  const videoRef = useRef(null);
+  const playerRef = useRef(null);
 
-  const handleCheckmarkClick = (step) => {
-    if (step === 1 || (step === 2 && selectedSteps.includes(1))) {
-      setSelectedSteps(prevSteps => 
-        prevSteps.includes(step) ? prevSteps.filter(s => s !== step) : [...prevSteps, step]
-      );
+  useEffect(() => {
+    window.onYouTubeIframeAPIReady = () => {
+      playerRef.current = new window.YT.Player(videoRef.current, {
+        events: {
+          onReady: () => {
+            console.log('YouTube Player Ready');
+          },
+        },
+      });
+    };
+  }, []);
+
+  const handleSidebarToggle = () => {
+    setIsSidebarOpen(!isSidebarOpen);
+  };
+
+  const handleTimestampClick = (timestamp) => {
+    if (playerRef.current) {
+      playerRef.current.seekTo(timestamp, true);
     }
   };
 
-  const handleTakeAssessment = () => {
-    navigate('/quiz/Time-&-Space-Complexity', { replace: true });
+  const toggleSection = (section) => {
+    setOpenSections((prevSections) =>
+      prevSections.includes(section)
+        ? prevSections.filter((s) => s !== section)
+        : [...prevSections, section]
+    );
+  };
+
+  const handleStartQuiz = () => {
+    // Navigate to the quiz page or show a quiz modal
+    console.log('Start your quiz!');
+  };
+
+  const handleVrClick = () => {
+    // Handle VR button click
+    console.log('VR Button Clicked');
+  };
+
+  const handleAddNote = () => {
+    if (newNote.trim()) {
+      setNotes([...notes, { text: newNote, timestamp: Date.now() }]);
+      setNewNote('');
+    }
+  };
+
+  const handleAddQuestion = () => {
+    if (newQuestion.trim()) {
+      setQuestions([...questions, { question: newQuestion, answer: '' }]);
+      setNewQuestion('');
+    }
+  };
+
+  const handleAnswerQuestion = (index) => {
+    const updatedQuestions = [...questions];
+    updatedQuestions[index].answer = newAnswer;
+    setQuestions(updatedQuestions);
+    setNewAnswer('');
   };
 
   return (
-    <div className="w-full max-w-3xl mx-auto p-4 bg-white dark:bg-gray-900 text-black dark:text-white">
-      <h1 className="text-2xl font-bold mb-6 text-center">Course on the Topic</h1>
-
-      {/* First Video */}
-      <div className="mb-8">
-        <div className="flex items-center mb-2">
-          <div
-            className={`w-6 h-6 flex items-center justify-center rounded-full border-2 ${
-              selectedSteps.includes(1) ? 'bg-green-500 text-white border-green-500' : 'border-gray-300 dark:border-gray-600'
-            } mr-4 cursor-pointer`}
-            onClick={() => handleCheckmarkClick(1)}
-          >
-            {selectedSteps.includes(1) && <span className="text-xl">✔️</span>}
+    <div className="container">
+      {/* Sidebar */}
+      <div className={`sidebar ${isSidebarOpen ? 'open' : ''}`}>
+        <button className="close-btn" onClick={handleSidebarToggle}>
+          &times;
+        </button>
+        <div className="p-4">
+          {/* Timestamps */}
+          <div className="sidebar-header">
+            <h2 className="text-xl font-bold mb-4">Timestamps</h2>
+            <button className="vr-btn vr-btn-in-sidebar" onClick={handleVrClick}>
+              <FaVrCardboard className="vr-icon" />
+              VR
+            </button>
           </div>
-          <h2 className="text-xl font-semibold">Learn the Topic</h2>
+          <ul className="timestamp-list">
+            {/* Timestamp sections */}
+            <li className="section">
+              <div className="section-header" onClick={() => toggleSection('intro1')}>
+                <span>Introduction 1</span>
+                <FiPlus className={`add-icon ${openSections.includes('intro1') ? 'rotated' : ''}`} />
+              </div>
+              {openSections.includes('intro1') && (
+                <div className="section-content">
+                  <p onClick={() => handleTimestampClick(0)}>00:00 - Introduction 1</p>
+                  <div className="quiz-section">
+                    <h3>Quiz</h3>
+                    <div className="quiz-card">
+                      <p>What is the main topic of this section?</p>
+                      <ul>
+                        <li>Introduction</li>
+                        <li>Main Concepts</li>
+                        <li>Detailed Analysis</li>
+                        <li>Conclusion</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              )}
+            </li>
+            <li className="section">
+              <div className="section-header" onClick={() => toggleSection('intro2')}>
+                <span>Introduction 2</span>
+                <FiPlus className={`add-icon ${openSections.includes('intro2') ? 'rotated' : ''}`} />
+              </div>
+              {openSections.includes('intro2') && (
+                <div className="section-content">
+                  <p onClick={() => handleTimestampClick(0)}>00:00 - Introduction 2</p>
+                  <div className="quiz-section">
+                    <h3>Quiz</h3>
+                    <div className="quiz-card">
+                      <p>What is the main topic of this section?</p>
+                      <ul>
+                        <li>Introduction</li>
+                        <li>Main Concepts</li>
+                        <li>Detailed Analysis</li>
+                        <li>Conclusion</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              )}
+            </li>
+            {/* Additional sections */}
+          </ul>
+          <div className="start-quiz-container">
+            <button className="start-quiz-btn" onClick={handleStartQuiz}>
+              Start Your Quiz
+            </button>
+          </div>
         </div>
-        <div className="relative mb-4 mx-auto max-w-2xl">
+      </div>
+
+      {/* Main content */}
+      <div className={`main-content ${isSidebarOpen ? 'shifted' : ''}`}>
+        {!isSidebarOpen && (
+          <button className="course-content-btn" onClick={handleSidebarToggle}>
+            Course Content
+          </button>
+        )}
+
+        {/* Main Video */}
+        <div className="relative w-full h-[70%]">
           <iframe
-            title="Heart"
-            src="https://www.youtube.com/embed/jU9w6w8LwqM?autoplay=1"
+            ref={videoRef}
+            title="Learn the Topic"
+            src="https://www.youtube.com/embed/jU9w6w8LwqM?enablejsapi=1"
             frameBorder="0"
             allow="autoplay; encrypted-media"
             allowFullScreen
-            className="w-full h-96" // Height increased here
+            className="absolute top-0 left-0 w-full h-full"
           />
         </div>
-      </div>
 
-      {/* Second Video */}
-      <div className={`mb-8 ${selectedSteps.includes(1) ? '' : 'opacity-50 cursor-not-allowed'}`}>
-        <div className="flex items-center mb-2">
-          <div
-            className={`w-6 h-6 flex items-center justify-center rounded-full border-2 ${
-              selectedSteps.includes(2) ? 'bg-green-500 text-white border-green-500' : 'border-gray-300 dark:border-gray-600'
-            } mr-4 cursor-pointer`}
-            onClick={() => handleCheckmarkClick(2)}
-          >
-            {selectedSteps.includes(2) && <span className="text-xl">✔️</span>}
-          </div>
-          <h2 className="text-xl font-semibold">Examine with the Help of VR</h2>
-        </div>
-        <div className="relative mb-4 mx-auto max-w-2xl">
-          <iframe
-            title="VR Examination"
-            src="https://www.youtube.com/embed/3V8YMnIcpkI"
-            frameBorder="0"
-            allow="encrypted-media"
-            allowFullScreen
-            className="w-full h-96" // Height increased here
-          />
-        </div>
-      </div>
-
-      {/* Quiz Section */}
-      <div className={`${selectedSteps.includes(2) ? '' : 'opacity-50 cursor-not-allowed'}`}>
-        
-        <div className="flex justify-center mt-4">
+        {/* Navigation Bar for Tabs */}
+        <nav className="mt-3 flex w-full justify-around border-b">
           <button
-            className={`px-6 py-2 bg-blue-500 text-white rounded-lg shadow-md hover:bg-blue-600 ${
-              selectedSteps.includes(2) ? '' : 'opacity-50 cursor-not-allowed'
-            }`}
-            disabled={!selectedSteps.includes(2)}
-            onClick={handleTakeAssessment}
+            className={`py-2 px-4 ${activeTab === 'overview' ? 'border-b-2 border-blue-500' : ''}`}
+            onClick={() => setActiveTab('overview')}
           >
-            Take an Assessment
+            Overview
           </button>
-        </div>
-      </div>
-    </div>
-  );
+          <button
+            className={`py-2 px-4 ${activeTab === 'notes' ? 'border-b-2 border-blue-500' : ''}`}
+            onClick={() => setActiveTab('notes')}
+          >
+            Notes
+          </button>
+          <button
+            className={`py-2 px-4 ${activeTab === 'review' ? 'border-b-2 border-blue-500' : ''}`}
+            onClick={() => setActiveTab('review')}
+          >
+            Review
+          </button>
+          <button
+            className={`py-2 px-4 ${activeTab === 'qna' ? 'border-b-2 border-blue-500' : ''}`}
+            onClick={() => setActiveTab('qna')}
+          >
+            Q&A
+          </button>
+        </nav>
+
+        {/* Tab Content */}
+        <div className="p-4 w-full">
+          {activeTab === 'overview' && (
+            <div>
+              <h2 className="text-lg font-bold">Overview</h2>
+              <p>
+                The heart is a muscular organ in humans and other animals that pumps blood through the circulatory system. It is located slightly left of the center of the chest. The heart has four chambers: two upper atria and two lower ventricles. The heart pumps blood through a series of blood vessels, including arteries, veins, and capillaries. The heart's function is essential for supplying oxygen and nutrients to tissues and removing carbon dioxide and other wastes.
+              </p>
+              <p>
+                The heart's rhythm is regulated by the sinoatrial (SA) node, which is often referred to as the natural pacemaker. Electrical impulses travel through the heart muscle, causing it to contract and pump blood. The heart's pumping action can be divided into two phases: systole (contraction) and diastole (relaxation). Proper functioning of the heart is crucial for maintaining overall health and preventing cardiovascular diseases.
+              </p>
+              <div className="video-section">
+                <h3>Video: Heart Overview</h3>
+                <iframe
+                  title="Heart Overview"
+                  src="https://www.youtube.com/embed/VIDEO_ID_HERE" // Replace with your video URL
+                  frameBorder="0"
+                  allow="autoplay; encrypted-media"
+                  allowFullScreen
+                  className="w-full h-60"
+                />
+              </div>
+            </div>
+          )}
+          {activeTab === 'notes' && (
+  <div>
+    <h2 className="section-title">Notes</h2>
+    <textarea
+      value={newNote}
+      onChange={(e) => setNewNote(e.target.value)}
+      placeholder="Add your note here..."
+      className="note-input"
+    />
+    <button
+      onClick={handleAddNote}
+      className="add-note-btn"
+    >
+      Add Note
+    </button>
+    <ul className="notes-list">
+      {notes.map((note, index) => (
+        <li key={index} className="note-item">
+          {note.text}
+        </li>
+      ))}
+    </ul>
+  </div>
+)}
+
+{activeTab === 'qna' && (
+  <div>
+    <h2 className="section-title">Q&A</h2>
+    <textarea
+      value={newQuestion}
+      onChange={(e) => setNewQuestion(e.target.value)}
+      placeholder="Ask a question..."
+      className="question-input"
+    />
+    <button
+      onClick={handleAddQuestion}
+      className="add-question-btn"
+    >
+      Ask Question
+    </button>
+    <ul className="questions-list">
+      {questions.map((q, index) => (
+        <li key={index} className="question-item">
+          <p className="question-text">{q.question}</p>
+          <textarea
+            value={newAnswer}
+            onChange={(e) => setNewAnswer(e.target.value)}
+            placeholder="Write your answer..."
+            className="answer-input"
+          />
+          <button
+            onClick={() => handleAnswerQuestion(index)}
+            className="submit-answer-btn"
+          >
+            Submit Answer
+          </button>
+          {q.answer && <p className="answer-text">Answer: {q.answer}</p>}
+        </li>
+      ))}
+    </ul>
+  </div>
+)} </div> </div> </div>);
 }
 
 export default Topic;

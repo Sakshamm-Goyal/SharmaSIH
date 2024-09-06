@@ -54,7 +54,7 @@ function ContactUsForm() {
         <TextInput
           required
           icon="account_circle"
-          placeholder="Enter Name"
+          placeholder="Enter your Organization Name"
           type="text"
           value={senderDetails?.name}
           onChange={(e) => handleInputChange('name', e.target.value)}
@@ -79,7 +79,7 @@ function ContactUsForm() {
           <textarea
             required
             className="ml-1 h-[100px] w-full resize-none rounded-lg border-none bg-transparent font-medium tracking-wide text-black outline-none dark:text-white lg:text-xl"
-            placeholder="Your Message"
+            placeholder="How many students will be using the lab? What do you expect from us?"
             value={senderDetails?.message}
             onChange={(e) => handleInputChange('message', e.target.value)}
           />

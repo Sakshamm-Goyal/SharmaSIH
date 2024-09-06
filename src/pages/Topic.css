@@ -1,0 +1,298 @@
+/* Topic.css */
+
+/* Container styles */
+.container {
+  display: flex;
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* Sidebar styles */
+.sidebar {
+  position: fixed;
+  top: 10%;
+  right: 0;
+  width: 30%;
+  height: 90%;
+  background-color: #333;
+  color: white;
+  transform: translateX(100%);
+  transition: transform 0.3s ease;
+  z-index: 10;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Sidebar open state */
+.sidebar.open {
+  transform: translateX(0);
+}
+
+/* Close button styles */
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 24px;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  z-index: 11;
+}
+
+/* Timestamp list styles */
+.timestamp-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.timestamp-list li {
+  cursor: pointer;
+  margin-bottom: 10px;
+  padding: 10px;
+  border-radius: 4px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.timestamp-list li:hover {
+  background-color: #555;
+  color: #fff;
+}
+
+.main-content {
+  flex: 1;
+  transition: margin-right 0.3s ease;
+  width: 100%;
+  overflow: auto; /* Ensure scrolling in main content */
+}
+
+/* Main content shifted when sidebar is open */
+.main-content.shifted {
+  margin-right: 30%;
+}
+
+/* Course content button styles */
+.course-content-btn {
+  position: fixed;
+  top: 30%;
+  right: 0;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  z-index: 20;
+  transition: background-color 0.3s ease;
+}
+
+.course-content-btn:hover {
+  background-color: #0056b3;
+}
+
+/* Section header styles */
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  padding: 10px 0;
+  border-bottom: 1px solid #444;
+  color: #fff;
+}
+
+/* Plus icon rotation */
+.add-icon {
+  transition: transform 0.3s ease;
+}
+
+.add-icon.rotated {
+  transform: rotate(45deg);
+}
+
+/* Quiz section styles */
+.quiz-section {
+  margin-top: 20px;
+}
+
+.quiz-card {
+  background-color: #444;
+  border-radius: 5px;
+  padding: 15px;
+  color: white;
+  border: 1px solid #555;
+}
+
+.quiz-card h3 {
+  margin-top: 0;
+}
+
+.quiz-card ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.quiz-card li {
+  padding: 5px 0;
+}
+
+/* Start quiz button styles */
+.start-quiz-container {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.start-quiz-btn {
+  background-color: #28a745;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.start-quiz-btn:hover {
+  background-color: #218838;
+}
+
+/* VR button styles */
+.sidebar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1rem;
+}
+
+.vr-btn {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.vr-btn:hover {
+  background-color: #0056b3;
+}
+
+.vr-btn-in-sidebar {
+  margin-left: 10px;
+}
+
+/* Notes section styles */
+.notes-section {
+  margin-top: 20px;
+}
+
+.note-input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ced4da;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.add-note-btn {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.add-note-btn:hover {
+  background-color: #0056b3;
+}
+
+.notes-list {
+  list-style: none;
+  padding: 0;
+}
+
+.note-item {
+  padding: 10px;
+  border-bottom: 1px solid #dee2e6;
+}
+
+/* Q&A section styles */
+.qna-section {
+  margin-top: 20px;
+}
+
+.question-input,
+.answer-input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ced4da;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.add-question-btn,
+.submit-answer-btn {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.add-question-btn:hover,
+.submit-answer-btn:hover {
+  background-color: #0056b3;
+}
+
+.questions-list {
+  list-style: none;
+  padding: 0;
+}
+
+.question-item {
+  padding: 10px;
+  border-bottom: 1px solid #dee2e6;
+}
+
+.question-text {
+  font-weight: bold;
+}
+
+.answer-text {
+  margin-top: 5px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .sidebar {
+    width: 100%;
+    height: 100%;
+    top: 0;
+    transform: translateX(-100%);
+  }
+
+  .sidebar.open {
+    transform: translateX(0);
+  }
+
+  .main-content.shifted {
+    margin-right: 0;
+  }
+
+  .course-content-btn {
+    display: none;
+  }
+}

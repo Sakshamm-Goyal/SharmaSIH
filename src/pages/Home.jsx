@@ -71,7 +71,7 @@ function Home() {
           <span className="my-1 block text-center text-primary drop-shadow-2xl">
             Coding Quiz Practice
           </span>
-          Platform you have ever seen!
+          Platform you have ever seen!!!!!!
         </p>
         <p className="rounded-lg bg-primary px-4 py-2 text-center font-semibold uppercase tracking-wide text-black md:text-xl">
           Quizzes are like a mental workout, except you don&apos;t need to break a sweat!

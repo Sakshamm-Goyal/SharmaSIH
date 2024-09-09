@@ -1,9 +1,24 @@
+"use client";
+import { useScroll, useTransform } from "framer-motion";
+import React from "react";
 import { useEffect, useState } from 'react';
 import { coding, hero } from '../assets';
 import { BasicInfo, ContactUs, Footer, PopularQuizzes } from '../components';
+import { GoogleGeminiEffect } from "../components/atoms/gemini";
 
 function Home() {
   const [imageLoaded, setImageLoaded] = useState(false);
+  const ref = React.useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start start", "end start"],
+  });
+ 
+  const pathLengthFirst = useTransform(scrollYProgress, [0, 0.8], [0.2, 1.2]);
+  const pathLengthSecond = useTransform(scrollYProgress, [0, 0.8], [0.15, 1.2]);
+  const pathLengthThird = useTransform(scrollYProgress, [0, 0.8], [0.1, 1.2]);
+  const pathLengthFourth = useTransform(scrollYProgress, [0, 0.8], [0.05, 1.2]);
+  const pathLengthFifth = useTransform(scrollYProgress, [0, 0.8], [0, 1.2]);
 
   useEffect(() => {
     // Inject the chatbot script when the component is mounted
@@ -25,6 +40,7 @@ function Home() {
   }, []);
 
   return (
+    
     <div
       className={`mt-36 flex animate-reveal flex-col items-center justify-center xl:mt-28 ${
         !imageLoaded && 'hidden'
@@ -61,7 +77,20 @@ function Home() {
           Quizzes are like a mental workout, except you don&apos;t need to break a sweat!
         </p>
       </div>
-
+      <div
+      className="h-[400vh] bg-black w-full dark:border dark:border-white/[0.1] rounded-md relative pt-40 overflow-clip"
+      ref={ref}
+    >
+      <GoogleGeminiEffect
+        pathLengths={[
+          pathLengthFirst,
+          pathLengthSecond,
+          pathLengthThird,
+          pathLengthFourth,
+          pathLengthFifth,
+        ]}
+      />
+    </div>
       <BasicInfo />
       <PopularQuizzes />
       <ContactUs />

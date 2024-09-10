@@ -1,4 +1,5 @@
-import { useState } from 'react'
+import { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const Message = () => {
   const [activeSection, setActiveSection] = useState('home'); // Default to 'home'
@@ -297,9 +298,9 @@ const Message = () => {
               <input
                 type='text'
                 placeholder='Search for jobs...'
-                className='w-full p-2 bg-gray-700 text-gray-300 rounded-lg mb-4'
-                value={searchTerm} // Bind the input value to the state
-                onChange={(e) => setSearchTerm(e.target.value)} // Update the state on input change
+                className='w-full p-2 bg-primary text-white dark:bg-gray-800 dark:text-gray-300 rounded-lg mb-4'
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)} 
               />
               {/* Job Listings */}
               <div>
@@ -307,15 +308,15 @@ const Message = () => {
                   filteredJobs.map((job, index) => (
                     <div
                       key={index}
-                      className='bg-gray-800 p-4 rounded-lg mb-4 flex items-center'
+                      className='mb-4 flex items-center rounded-lg bg-primary p-4 dark:bg-gray-800'
                     >
                       <img src={job.logo} alt={job.company} className='w-12 h-12 mr-4' />
                       <div>
                         <h3 className='text-lg font-semibold text-white'>{job.title}</h3>
-                        <p className='text-gray-400'>{job.company}</p>
-                        <p className='text-gray-300 mt-2'>{job.location}</p>
-                        <p className='text-gray-300 mt-2'>{job.jobType}</p>
-                        <p className='text-gray-300 mt-2'>{job.remote}</p>
+                        <p className='text-gray-300'>{job.company}</p>
+                        <p className='text-gray-200 mt-2'>{job.location}</p>
+                        <p className='text-gray-200 mt-2'>{job.jobType}</p>
+                        <p className='text-gray-200 mt-2'>{job.remote}</p>
                         <p className='text-gray-300 text-xs mt-5'>{job.datePosted}</p>
                       </div>
                     </div>
@@ -325,14 +326,20 @@ const Message = () => {
                 )}
               </div>
             </div>
-            <div className='w-1/4 bg-gray-800 border-l border-gray-700 p-20'>
+            <div className='w-1/4 bg-primary p-20 dark:bg-gray-800 border-gray-700' style={{ height: '300px', width: '400px' }}>
               {/* Sidebar */}
-              <h2 className='text-lg font-semibold mb-4'>My Jobs</h2>
-              <h2 className='text-lg font-semibold mt-8'>Skill Assessment</h2>
-              <p className='text-gray-400'>
-                Assess your skills and improve them with our tailored assessments.
-              </p>
-            </div>
+              <div className='flex flex-col h-full justify-between'>
+                <div>
+                  <h2 className='text-lg font-semibold mb-4'>My Jobs</h2>
+                  <Link to="/learn">
+                    <h2 className='text-lg font-semibold mt-8 cursor-pointer hover:underline'>Skill Assessment</h2>
+                  </Link>
+                  <p className='text-gray-200 mt-2'>
+                    Assess your skills and improve them with our tailored assessments.
+                  </p>
+                </div>
+              </div>
+    </div>
           </div>
         )
 
@@ -342,12 +349,12 @@ const Message = () => {
   };
 
   return (
-    <div className='flex h-screen bg-gray-900 text-white'>
+    <div className='flex h-screen dark:bg-gray-900 dark:text-white bg-white text-black'>
       {/* Left Sidebar - Icons/Menu */}
       <div
         className={`${
           sidebarExpanded ? 'w-1/4' : 'w-16'
-        } bg-gray-800 border-r border-gray-700 relative transition-all duration-300`}
+        } bg-white dark:bg-gray-800 border-r border-gray-700 relative transition-all duration-300`}
         onMouseEnter={() => setSidebarExpanded(true)}
         onMouseLeave={() => setSidebarExpanded(false)}
       >

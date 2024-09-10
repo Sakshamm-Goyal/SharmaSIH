@@ -1,10 +1,13 @@
 "use client";
+import React, { useEffect, useState } from 'react';
 import { useScroll, useTransform } from "framer-motion";
-import React from "react";
-import { useEffect, useState } from 'react';
 import { coding, hero } from '../assets';
 import { BasicInfo, ContactUs, Footer, PopularQuizzes } from '../components';
 import { GoogleGeminiEffect } from "../components/atoms/gemini";
+import { InfiniteMovingCards } from '../components/atoms/infinite-moving-cards'; 
+import { StickyScroll } from '../components/atoms/sticky-scroll-reveal'; 
+
+ // Importing the InfiniteMovingCards component
 
 function Home() {
   const [imageLoaded, setImageLoaded] = useState(false);
@@ -20,8 +23,59 @@ function Home() {
   const pathLengthFourth = useTransform(scrollYProgress, [0, 0.8], [0.05, 1.2]);
   const pathLengthFifth = useTransform(scrollYProgress, [0, 0.8], [0, 1.2]);
 
+  const content = [
+    {
+      title: "Collaborative Editing",
+      description:
+        "Work together in real time with your team, clients, and stakeholders. Collaborate on documents, share ideas, and make decisions quickly. With our platform, you can streamline your workflow and increase productivity.",
+      content: (
+        <div className="h-full w-full bg-[linear-gradient(to_bottom_right,var(--cyan-500),var(--emerald-500))] flex items-center justify-center text-white">
+          Collaborative Editing
+        </div>
+      ),
+    },
+    {
+      title: "Real time changes",
+      description:
+        "See changes as they happen. With our platform, you can track every modification in real time. No more confusion about the latest version of your project. Say goodbye to the chaos of version control and embrace the simplicity of real-time updates.",
+      content: (
+        <div className="h-full w-full  flex items-center justify-center text-white">
+          <img
+  src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fen.wikipedia.org%2Fwiki%2FImage&psig=AOvVaw0CJDIh6DjyQMPODi4shJdK&ust=1726067235049000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCOiRwNXTuIgDFQAAAAAdAAAAABAE"
+  width={300}
+  height={300}
+  className="h-full w-full object-cover"
+  alt="linear board demo"
+/>
+
+        </div>
+      ),
+    },
+    {
+      title: "Version control",
+      description:
+        "Experience real-time updates and never stress about version control again. Our platform ensures that you're always working on the most recent version of your project, eliminating the need for constant manual updates. Stay in the loop, keep your team aligned, and maintain the flow of your work without any interruptions.",
+      content: (
+        <div className="h-full w-full bg-[linear-gradient(to_bottom_right,var(--orange-500),var(--yellow-500))] flex items-center justify-center text-white">
+          Version control
+        </div>
+      ),
+    },
+    {
+      title: "Running out of content",
+      description:
+        "Experience real-time updates and never stress about version control again. Our platform ensures that you're always working on the most recent version of your project, eliminating the need for constant manual updates. Stay in the loop, keep your team aligned, and maintain the flow of your work without any interruptions.",
+      content: (
+        <div className="h-full w-full bg-[linear-gradient(to_bottom_right,var(--cyan-500),var(--emerald-500))] flex items-center justify-center text-white">
+          Running out of content
+        </div>
+      ),
+    },
+  ];
+
+  
+
   useEffect(() => {
-    // Inject the chatbot script when the component is mounted
     const script1 = document.createElement('script');
     script1.src = "https://cdn.botpress.cloud/webchat/v2.1/inject.js";
     script1.async = true;
@@ -32,15 +86,43 @@ function Home() {
     script2.async = true;
     document.body.appendChild(script2);
 
-    // Cleanup function to remove the script when the component unmounts
     return () => {
       document.body.removeChild(script1);
       document.body.removeChild(script2);
     };
   }, []);
 
+  const testimonials = [
+    {
+      quote:
+        "It was the best of times, it was the worst of times, it was the age of wisdom, it was the age of foolishness...",
+      name: "Charles Dickens",
+      title: "A Tale of Two Cities",
+    },
+    {
+      quote:
+        "To be, or not to be, that is the question...",
+      name: "William Shakespeare",
+      title: "Hamlet",
+    },
+    {
+      quote: "All that we see or seem is but a dream within a dream.",
+      name: "Edgar Allan Poe",
+      title: "A Dream Within a Dream",
+    },
+    {
+      quote: "It is a truth universally acknowledged, that a single man in possession of a good fortune...",
+      name: "Jane Austen",
+      title: "Pride and Prejudice",
+    },
+    {
+      quote: "Call me Ishmael. Some years ago...",
+      name: "Herman Melville",
+      title: "Moby-Dick",
+    },
+  ];
+
   return (
-    
     <div
       className={`mt-36 flex animate-reveal flex-col items-center justify-center xl:mt-28 ${
         !imageLoaded && 'hidden'
@@ -67,33 +149,49 @@ function Home() {
 
       <div className="mx-8 flex flex-col items-center justify-center gap-2">
         <p className="page-heading my-8 mt-10 text-center text-3xl font-bold uppercase text-black dark:text-white md:text-5xl">
-          The Best
+          Learn by Doing
           <span className="my-1 block text-center text-primary drop-shadow-2xl">
-            Coding Quiz Practice
+            Experience Education that Connects You to 
           </span>
-          Platform you have ever seen!!!!!!
+          the Real World!
         </p>
         <p className="rounded-lg bg-primary px-4 py-2 text-center font-semibold uppercase tracking-wide text-black md:text-xl">
-          Quizzes are like a mental workout, except you don&apos;t need to break a sweat!
+          A Transformative Education for a Transforming Nation
         </p>
       </div>
-      <div
-      className="h-[400vh] bg-black w-full dark:border dark:border-white/[0.1] rounded-md relative pt-40 overflow-clip"
-      ref={ref}
-    >
-      <GoogleGeminiEffect
-        pathLengths={[
-          pathLengthFirst,
-          pathLengthSecond,
-          pathLengthThird,
-          pathLengthFourth,
-          pathLengthFifth,
-        ]}
+
+      {/* Call the InfiniteMovingCards component here */}
+      <div className="h-[40rem] rounded-md flex flex-col antialiased bg-white dark:bg-black dark:bg-grid-white/[0.05] items-center justify-center relative overflow-hidden">
+      <InfiniteMovingCards
+        items={testimonials}
+        direction="right"
+        speed="slow"
       />
     </div>
+
       <BasicInfo />
       <PopularQuizzes />
+
+      <div
+        className="h-[400vh] bg-black w-full dark:border dark:border-white/[0.1] rounded-md relative pt-40 overflow-clip"
+        ref={ref}
+      >
+        <GoogleGeminiEffect
+          pathLengths={[
+            pathLengthFirst,
+            pathLengthSecond,
+            pathLengthThird,
+            pathLengthFourth,
+            pathLengthFifth,
+          ]}
+        />
+      </div>
+      
       <ContactUs />
+      <div className="p-10">
+      <StickyScroll content={content} />
+    </div>
+      
       <Footer />
     </div>
   );

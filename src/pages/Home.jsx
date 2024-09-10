@@ -7,8 +7,6 @@ import { GoogleGeminiEffect } from "../components/atoms/gemini";
 import { InfiniteMovingCards } from '../components/atoms/infinite-moving-cards'; 
 import { StickyScroll } from '../components/atoms/sticky-scroll-reveal'; 
 
- // Importing the InfiniteMovingCards component
-
 function Home() {
   const [imageLoaded, setImageLoaded] = useState(false);
   const ref = React.useRef(null);
@@ -64,7 +62,7 @@ function Home() {
     {
       title: "Running out of content",
       description:
-        "Experience real-time updates and never stress about version control again. Our platform ensures that you're always working on the most recent version of your project, eliminating the need for constant manual updates. Stay in the loop, keep your team aligned, and maintain the flow of your work without any interruptions.",
+        "Experience real-time updates and never stress about version control again. Our platform ensures that you're always working on the most recent version of your project, eliminating the need for constant manual updates. Stay in the loop, keep your team  aligned, and maintain the flow of your work without any interruptions.",
       content: (
         <div className="h-full w-full bg-[linear-gradient(to_bottom_right,var(--cyan-500),var(--emerald-500))] flex items-center justify-center text-white">
           Running out of content
@@ -73,78 +71,44 @@ function Home() {
     },
   ];
 
-  
+
 
   useEffect(() => {
-    const script1 = document.createElement('script');
-    script1.src = "https://cdn.botpress.cloud/webchat/v2.1/inject.js";
-    script1.async = true;
-    document.body.appendChild(script1);
+    // Dynamically inject Botpress Webchat scripts
+    const injectBotpressScripts = () => {
+      const script1 = document.createElement('script');
+      script1.src = "https://cdn.botpress.cloud/webchat/v2.1/inject.js";
+      script1.async = true;
+      document.body.appendChild(script1);
 
-    const script2 = document.createElement('script');
-    script2.src = "https://mediafiles.botpress.cloud/1b9ad40f-0228-4157-9da1-f301289ab07b/webchat/v2.1/config.js";
-    script2.async = true;
-    document.body.appendChild(script2);
+      const script2 = document.createElement('script');
+      script2.src = "https://mediafiles.botpress.cloud/1b9ad40f-0228-4157-9da1-f301289ab07b/webchat/v2.1/config.js";
+      script2.async = true;
+      document.body.appendChild(script2);
 
-    return () => {
-      document.body.removeChild(script1);
-      document.body.removeChild(script2);
+      // Clean up scripts on component unmount
+      return () => {
+        document.body.removeChild(script1);
+        document.body.removeChild(script2);
+      };
     };
+
+    injectBotpressScripts();
   }, []);
 
   const testimonials = [
-    {
-      quote:
-        "It was the best of times, it was the worst of times, it was the age of wisdom, it was the age of foolishness...",
-      name: "Charles Dickens",
-      title: "A Tale of Two Cities",
-    },
-    {
-      quote:
-        "To be, or not to be, that is the question...",
-      name: "William Shakespeare",
-      title: "Hamlet",
-    },
-    {
-      quote: "All that we see or seem is but a dream within a dream.",
-      name: "Edgar Allan Poe",
-      title: "A Dream Within a Dream",
-    },
-    {
-      quote: "It is a truth universally acknowledged, that a single man in possession of a good fortune...",
-      name: "Jane Austen",
-      title: "Pride and Prejudice",
-    },
-    {
-      quote: "Call me Ishmael. Some years ago...",
-      name: "Herman Melville",
-      title: "Moby-Dick",
-    },
+    { quote: "It was the best of times, it was the worst of times...", name: "Charles Dickens", title: "A Tale of Two Cities" },
+    { quote: "To be, or not to be, that is the question...", name: "William Shakespeare", title: "Hamlet" },
+    // Other testimonials
   ];
 
   return (
-    <div
-      className={`mt-36 flex animate-reveal flex-col items-center justify-center xl:mt-28 ${
-        !imageLoaded && 'hidden'
-      }`}
-    >
+    <div className={`mt-36 flex animate-reveal flex-col items-center justify-center xl:mt-28 ${!imageLoaded && 'hidden'}`}>
       <div className="relative mx-auto aspect-[8/5] max-w-xl overflow-hidden px-4 xl:mt-8 2xl:max-w-3xl">
         <div className="absolute left-0 top-0 flex w-full justify-center pr-1">
-          <img
-            alt=""
-            className="w-12 origin-center animate-rotate rounded-md drop-shadow-md md:w-20 md:rounded-xl"
-            src={coding}
-          />
+          <img alt="" className="w-12 origin-center animate-rotate rounded-md drop-shadow-md md:w-20 md:rounded-xl" src={coding} />
         </div>
-
-        <img
-          alt=""
-          className="object-cover drop-shadow-lg"
-          height={450}
-          src={hero}
-          width={720}
-          onLoad={() => setImageLoaded(true)}
-        />
+        <img alt="" className="object-cover drop-shadow-lg" height={450} src={hero} width={720} onLoad={() => setImageLoaded(true)} />
       </div>
 
       <div className="mx-8 flex flex-col items-center justify-center gap-2">
@@ -160,37 +124,28 @@ function Home() {
         </p>
       </div>
 
-      {/* Call the InfiniteMovingCards component here */}
-      <div className="h-[40rem] rounded-md flex flex-col antialiased bg-white dark:bg-black dark:bg-grid-white/[0.05] items-center justify-center relative overflow-hidden">
-      <InfiniteMovingCards
-        items={testimonials}
-        direction="right"
-        speed="slow"
-      />
-    </div>
-
       <BasicInfo />
-      <PopularQuizzes />
 
-      <div
-        className="h-[400vh] bg-black w-full dark:border dark:border-white/[0.1] rounded-md relative pt-40 overflow-clip"
-        ref={ref}
-      >
-        <GoogleGeminiEffect
-          pathLengths={[
-            pathLengthFirst,
-            pathLengthSecond,
-            pathLengthThird,
-            pathLengthFourth,
-            pathLengthFifth,
-          ]}
-        />
-      </div>
+      {/* InfiniteMovingCards Component */}
+      
+      
+      
+      <div className="mt-16"> {/* Increased top margin */}
+  <StickyScroll content={content} />
+</div>
+
+
+      <div className="mt-32"> {/* Adjust the margin-top value as needed */}
+  <InfiniteMovingCards items={testimonials} direction="right" speed="fast" />
+</div>
+
+<div className="h-[400vh] bg-black w-full dark:border dark:border-white/[0.1] rounded-md relative overflow-clip" ref={ref}>
+  <GoogleGeminiEffect pathLengths={[pathLengthFirst, pathLengthSecond, pathLengthThird, pathLengthFourth, pathLengthFifth]} />
+</div>
+
       
       <ContactUs />
-      <div className="p-10">
-      <StickyScroll content={content} />
-    </div>
+     
       
       <Footer />
     </div>

@@ -29,7 +29,7 @@ function Recommendation() {
           <style jsx>{`
             .loader {
               border: 4px solid rgba(0, 0, 0, 0.1);
-              border-left: 4px solid ${'rgb(24,160,139)'};
+              border-left: 4px solid ${'rgb(16, 252, 0)'};
               border-radius: 50%;
               width: 40px;
               height: 40px;
@@ -49,7 +49,7 @@ function Recommendation() {
           <div className="flex flex-col items-center">
             <button
               onClick={() => handleClick('Biology')}
-              className="flex items-center gap-2 text-xl font-semibold mb-4 px-6 py-2 bg-[rgb(24,160,139)] text-white rounded-lg shadow-md hover:bg-[rgba(24,160,139,0.8)]"
+              className="flex items-center gap-2 text-xl font-semibold mb-4 px-6 py-2 bg-[rgb(16,252,0)] text-white rounded-lg shadow-md hover:bg-[rgba(24,160,139,0.8)]"
             >
               🌿 Biology
             </button>
@@ -187,8 +187,8 @@ function PostSignInPage() {
                 <button
                   className={`px-6 py-3 rounded-md ${
                     answers.ageGroup === '<18'
-                      ? 'bg-[rgb(24,160,139)] text-white'
-                      : 'bg-gray-200 text-black dark:bg-gray-700 dark:text-white hover:bg-[rgba(24,160,139,0.1)]'
+                      ? 'bg-[rgb(4,231,98)] text-white'
+                      : 'bg-gray-200 text-black dark:bg-gray-700 dark:text-white hover:bg-[rgba(16,252,0,0.1)]'
                   }`}
                   onClick={() => handleSelect('ageGroup', '<18')}
                 >
@@ -197,7 +197,7 @@ function PostSignInPage() {
                 <button
                   className={`px-6 py-3 rounded-md ${
                     answers.ageGroup === '18-22'
-                      ? 'bg-[rgb(24,160,139)] text-white'
+                      ? 'bg-[rgb(4,231,98)] text-white'
                       : 'bg-gray-200 text-black dark:bg-gray-700 dark:text-white hover:bg-[rgba(24,160,139,0.1)]'
                   }`}
                   onClick={() => handleSelect('ageGroup', '18-22')}
@@ -207,7 +207,7 @@ function PostSignInPage() {
                 <button
                   className={`px-6 py-3 rounded-md ${
                     answers.ageGroup === '>22'
-                      ? 'bg-[rgb(24,160,139)] text-white'
+                      ? 'bg-[rgb(4,231,98)] text-white'
                       : 'bg-gray-200 text-black dark:bg-gray-700 dark:text-white hover:bg-[rgba(24,160,139,0.1)]'
                   }`}
                   onClick={() => handleSelect('ageGroup', '>22')}
@@ -225,7 +225,7 @@ function PostSignInPage() {
                 <button
                   className={`px-6 py-3 rounded-md ${
                     answers.gender === 'Male'
-                      ? 'bg-[rgb(24,160,139)] text-white'
+                      ? 'bg-[rgb(4,231,98)] text-white'
                       : 'bg-gray-200 text-black dark:bg-gray-700 dark:text-white hover:bg-[rgba(24,160,139,0.1)]'
                   }`}
                   onClick={() => handleSelect('gender', 'Male')}
@@ -235,7 +235,7 @@ function PostSignInPage() {
                 <button
                   className={`px-6 py-3 rounded-md ${
                     answers.gender === 'Female'
-                      ? 'bg-[rgb(24,160,139)] text-white'
+                      ? 'bg-[rgb(4,231,98)] text-white'
                       : 'bg-gray-200 text-black dark:bg-gray-700 dark:text-white hover:bg-[rgba(24,160,139,0.1)]'
                   }`}
                   onClick={() => handleSelect('gender', 'Female')}
@@ -245,7 +245,7 @@ function PostSignInPage() {
                 <button
                   className={`px-6 py-3 rounded-md ${
                     answers.gender === 'Other'
-                      ? 'bg-[rgb(24,160,139)] text-white'
+                      ? 'bg-[rgb(4,231,98)] text-white'
                       : 'bg-gray-200 text-black dark:bg-gray-700 dark:text-white hover:bg-[rgba(24,160,139,0.1)]'
                   }`}
                   onClick={() => handleSelect('gender', 'Other')}
@@ -263,7 +263,7 @@ function PostSignInPage() {
                 <button
                   className={`px-6 py-3 rounded-md ${
                     answers.educationLevel === 'High School'
-                      ? 'bg-[rgb(24,160,139)] text-white'
+                      ? 'bg-[rgb(4,231,98)] text-white'
                       : 'bg-gray-200 text-black dark:bg-gray-700 dark:text-white hover:bg-[rgba(24,160,139,0.1)]'
                   }`}
                   onClick={() => handleSelect('educationLevel', 'High School')}
@@ -273,7 +273,7 @@ function PostSignInPage() {
                 <button
                   className={`px-6 py-3 rounded-md ${
                     answers.educationLevel === 'Undergraduate'
-                      ? 'bg-[rgb(24,160,139)] text-white'
+                      ? 'bg-[rgb(4,231,98)] text-white'
                       : 'bg-gray-200 text-black dark:bg-gray-700 dark:text-white hover:bg-[rgba(24,160,139,0.1)]'
                   }`}
                   onClick={() => handleSelect('educationLevel', 'Undergraduate')}
@@ -283,7 +283,7 @@ function PostSignInPage() {
                 <button
                   className={`px-6 py-3 rounded-md ${
                     answers.educationLevel === 'Postgraduate'
-                      ? 'bg-[rgb(24,160,139)] text-white'
+                      ? 'bg-[rgb(4,231,98)] text-white'
                       : 'bg-gray-200 text-black dark:bg-gray-700 dark:text-white hover:bg-[rgba(24,160,139,0.1)]'
                   }`}
                   onClick={() => handleSelect('educationLevel', 'Postgraduate')}
@@ -301,7 +301,7 @@ function PostSignInPage() {
                 <button
                   className={`px-6 py-3 rounded-md ${
                     answers.careerStage === 'Student'
-                      ? 'bg-[rgb(24,160,139)] text-white'
+                      ? 'bg-[rgb(4,231,98)] text-white'
                       : 'bg-gray-200 text-black dark:bg-gray-700 dark:text-white hover:bg-[rgba(24,160,139,0.1)]'
                   }`}
                   onClick={() => handleSelect('careerStage', 'Student')}
@@ -311,7 +311,7 @@ function PostSignInPage() {
                 <button
                   className={`px-6 py-3 rounded-md ${
                     answers.careerStage === 'Entry Level'
-                      ? 'bg-[rgb(24,160,139)] text-white'
+                      ? 'bg-[rgb(4,231,98)] text-white'
                       : 'bg-gray-200 text-black dark:bg-gray-700 dark:text-white hover:bg-[rgba(24,160,139,0.1)]'
                   }`}
                   onClick={() => handleSelect('careerStage', 'Entry Level')}
@@ -321,7 +321,7 @@ function PostSignInPage() {
                 <button
                   className={`px-6 py-3 rounded-md ${
                     answers.careerStage === 'Mid Career'
-                      ? 'bg-[rgb(24,160,139)] text-white'
+                      ? 'bg-[rgb(4,231,98)] text-white'
                       : 'bg-gray-200 text-black dark:bg-gray-700 dark:text-white hover:bg-[rgba(24,160,139,0.1)]'
                   }`}
                   onClick={() => handleSelect('careerStage', 'Mid Career')}
@@ -331,7 +331,7 @@ function PostSignInPage() {
                 <button
                   className={`px-6 py-3 rounded-md ${
                     answers.careerStage === 'Senior Level'
-                      ? 'bg-[rgb(24,160,139)] text-white'
+                      ? 'bg-[rgb(4,231,98)] text-white'
                       : 'bg-gray-200 text-black dark:bg-gray-700 dark:text-white hover:bg-[rgba(24,160,139,0.1)]'
                   }`}
                   onClick={() => handleSelect('careerStage', 'Senior Level')}
@@ -351,7 +351,7 @@ function PostSignInPage() {
                     key={interest}
                     className={`px-6 py-3 rounded-md ${
                       answers.interests.includes(interest)
-                        ? 'bg-[rgb(24,160,139)] text-white'
+                        ? 'bg-[rgb(4,231,98)] text-white'
                         : 'bg-gray-200 text-black dark:bg-gray-700 dark:text-white hover:bg-[rgba(24,160,139,0.1)]'
                     }`}
                     onClick={() => toggleInterest(interest)}
@@ -375,7 +375,7 @@ function PostSignInPage() {
           )}
           <button
             className={`px-6 py-3 rounded-md ${
-              isStepValid() ? 'bg-[rgb(24,160,139)] text-white' : 'bg-gray-200 text-black dark:bg-gray-700 dark:text-white'
+              isStepValid() ? 'bg-[rgb(4,231,98)] text-white' : 'bg-gray-200 text-black dark:bg-gray-700 dark:text-white'
             }`}
             onClick={() => {
               if (step === 5) {

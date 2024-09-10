@@ -4,6 +4,7 @@ import { Footer } from '../components';
 import { useGAEventTracker } from '../hooks';
 import Card from "../components/atoms/Card";
 
+
 function Learn() {
   const gaEventTracker = useGAEventTracker('Video Thumbnail');
 
@@ -18,28 +19,28 @@ function Learn() {
     setTimeout(() => {
       setData([
         // Chemistry Topics
-        { link: "acids_bases", title: "Acids and Bases: Introduction and Properties", subject: "Chemistry" },
-        { link: "ph_scale", title: "The pH Scale: Measuring Acidity and Alkalinity", subject: "Chemistry" },
-        { link: "chemical_indicators", title: "Chemical Indicators: Litmus Paper and Others", subject: "Chemistry" },
-        { link: "litmus_paper", title: "Litmus Paper: How It Works and Its Uses", subject: "Chemistry" },
-        { link: "acid_base_reactions", title: "Acid-Base Reactions: Neutralization and Indicators", subject: "Chemistry" },
+        { link: "acids_bases", title: "Acids and Bases: Introduction and Properties", subject: "Chemistry",   },
+        { link: "ph_scale", title: "The pH Scale: Measuring Acidity and Alkalinity", subject: "Chemistry",  },
+        { link: "chemical_indicators", title: "Chemical Indicators: Litmus Paper and Others", subject: "Chemistry",  },
+        { link: "litmus_paper", title: "Litmus Paper: How It Works and Its Uses", subject: "Chemistry",  },
+        { link: "acid_base_reactions", title: "Acid-Base Reactions: Neutralization and Indicators", subject: "Chemistry", },
 
         // Biology Topics
         { link: "cell_structure", title: "Cell Structure and Function", subject: "Biology" },
         { link: "photosynthesis", title: "Photosynthesis: The Process of Energy Conversion", subject: "Biology" },
-        { link: "human_digestion", title: "Human Digestion: How the Digestive System Works", subject: "Biology" },
+        { link: "human_digestion", title: "Human Digestion: How the Digestive System Works", subject: "Biology"  },
 
         // Physics Topics
-        { link: "laws_of_motion", title: "Newton's Laws of Motion", subject: "Physics" },
-        { link: "optics", title: "Optics: The Study of Light", subject: "Physics" },
+        { link: "laws_of_motion", title: "Newton's Laws of Motion", subject: "Physics", },
+        { link: "optics", title: "Optics: The Study of Light", subject: "Physics",  },
 
         // Math Topics
-        { link: "algebra_basics", title: "Algebra Basics: Understanding Variables and Equations", subject: "Math" },
-        { link: "geometry_shapes", title: "Geometry: Shapes and Their Properties", subject: "Math" },
+        { link: "algebra_basics", title: "Algebra Basics: Understanding Variables and Equations", subject: "Math", },
+        { link: "geometry_shapes", title: "Geometry: Shapes and Their Properties", subject: "Math", },
 
         // History Topics
-        { link: "ancient_civilizations", title: "Ancient Civilizations: Mesopotamia and Egypt", subject: "History" },
-        { link: "world_war_ii", title: "World War II: Major Events and Impacts", subject: "History" },
+        { link: "ancient_civilizations", title: "Ancient Civilizations: Mesopotamia and Egypt", subject: "History", },
+        { link: "world_war_ii", title: "World War II: Major Events and Impacts", subject: "History",  },
       ]);
       setLoading(false);
     }, 1000);
@@ -101,7 +102,7 @@ function Learn() {
               to={`/topic/${video.link}`}
               onClick={() => gaEventTracker({ label: video.link })}
             >
-              <Card id={video.link} title={video.title} type="video" />
+              <Card id={video.link} title={video.title} type="video" image={video.image} />
             </Link>
           ))}
         </div>

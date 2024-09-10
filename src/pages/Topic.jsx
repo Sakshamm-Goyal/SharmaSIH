@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import './Topic.css'; // Ensure this file contains the necessary styles
 import { FiPlus } from 'react-icons/fi';
 import { useNavigate } from 'react-router-dom';

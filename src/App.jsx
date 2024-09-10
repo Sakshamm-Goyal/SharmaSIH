@@ -36,7 +36,8 @@ import {
   Submissions,
   Video,
   Topic,
-  PostSignInPage
+  PostSignInPage,
+  Message
 } from './pages';
 
 
@@ -50,6 +51,7 @@ function Root() {
         <Route element={<MainNavigationBar />}>
           <Route element={<Home />} path="/" />
           <Route element={<Quizzes />} path="/quizzes" />
+          <Route element={<Message />} path="/message" />
           <Route element={<About />} path="/about" />
           <Route element={<Reset />} path="/reset" />
           <Route element={<Learn />} path="/learn" />

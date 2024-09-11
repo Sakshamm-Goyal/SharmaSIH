@@ -341,3 +341,13 @@
     --angle: 360deg;
   }
 }
+
+.quiz-option.correct {
+  background-color: green;
+  color: white;
+}
+
+.quiz-option.incorrect {
+  background-color: red;
+  color: white;
+}

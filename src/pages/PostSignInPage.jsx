@@ -178,11 +178,12 @@ function PostSignInPage() {
         </p>
       </div>
 
-      <div className="mt-8 w-[90%] max-w-2xl rounded-lg bg-white p-10 shadow-lg">
-        <div className="text-black dark:text-white">
+      <div className="mt-8 w-11/12 max-w-2xl rounded-lg bg-[#001f3f] p-10 shadow-xl shadow-[#0a0a23]">
+  <div className="text-white">
+
           {step === 1 && (
             <div className="flex flex-col gap-4 items-center">
-              <p className="text-lg font-medium text-black dark:text-black">Select Your Age Group:</p>
+              <p className="text-lg font-large text-white dark:text-white">Select Your Age Group:</p>
               <div className="flex gap-4">
                 <button
                   className={`px-6 py-3 rounded-md ${
@@ -220,7 +221,7 @@ function PostSignInPage() {
 
           {step === 2 && (
             <div className="flex flex-col gap-4 items-center">
-              <p className="text-lg font-medium text-black dark:text-black">Select Your Gender:</p>
+              <p className="text-lg font-large text-black dark:text-white">Select Your Gender:</p>
               <div className="flex gap-4">
                 <button
                   className={`px-6 py-3 rounded-md ${
@@ -258,7 +259,7 @@ function PostSignInPage() {
 
           {step === 3 && (
             <div className="flex flex-col gap-4 items-center">
-              <p className="text-lg font-medium text-black dark:text-black">What is Your Current Education Level?</p>
+              <p className="text-lg font-large text-black dark:text-white">What is Your Current Education Level?</p>
               <div className="flex gap-4">
                 <button
                   className={`px-6 py-3 rounded-md ${
@@ -296,7 +297,7 @@ function PostSignInPage() {
 
           {step === 4 && (
             <div className="flex flex-col gap-4 items-center">
-              <p className="text-lg font-medium text-black dark:text-black">What Stage Are You in Your Career?</p>
+              <p className="text-lg font-large text-black dark:text-white">What Stage Are You in Your Career?</p>
               <div className="flex gap-4">
                 <button
                   className={`px-6 py-3 rounded-md ${
@@ -344,7 +345,7 @@ function PostSignInPage() {
 
           {step === 5 && (
             <div className="flex flex-col gap-4 items-center">
-              <p className="text-lg font-medium text-black dark:text-black">Select Your Interests:</p>
+              <p className="text-lg font-large text-black dark:text-white">Select Your Interests:</p>
               <div className="flex flex-wrap gap-4">
                 {sortedInterests.map((interest) => (
                   <button

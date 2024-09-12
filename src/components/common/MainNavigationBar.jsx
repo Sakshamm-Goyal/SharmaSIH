@@ -6,7 +6,7 @@ import { AuthenticationComponent, SubNavigationBar, SwitchTheme } from '../../co
 function MainNavigationBar() {
   return (
     <>
-      <nav className="navigation-bar fixed z-10 grid grid-cols-[auto_1fr_auto_auto] items-center justify-between px-4 py-2 md:px-20">
+      <nav className="navigation-bar fixed z-50 grid grid-cols-[auto_1fr_auto_auto] items-center justify-between px-4 py-2 md:px-20">
         <ul className="flex items-center justify-between">
           <li>
             <Link className="flex items-center justify-center" to="/">

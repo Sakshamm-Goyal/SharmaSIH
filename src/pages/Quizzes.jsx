@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 import { Footer, Thumbnail } from '../components';
-import { useData, useGAEventTracker } from '../hooks';
+import {useData} from '../hooks';
 
 function Quizzes() {
   const { loading, error, data } = useData('../database/QuizzyDatabase.json');
@@ -63,4 +63,4 @@ function Quizzes() {
   );
 }
 
-export default Quizzes;
+export default Quizzes

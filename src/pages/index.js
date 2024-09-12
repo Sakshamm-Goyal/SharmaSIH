@@ -15,3 +15,4 @@ export { default as Video } from './Video';
 export { default as PostSignInPage } from './PostSignInPage';
 export { default as Topic } from './Topic';
 export { default as Message } from './Message';
+export {default as Jobs } from './Jobs';

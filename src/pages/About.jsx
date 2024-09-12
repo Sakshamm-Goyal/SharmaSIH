@@ -1,13 +1,13 @@
 const aboutDetails = [
-  `Welcome to Cuizzy, the premier destination for free coding quizzes! Our goal is to provide you with a fun and challenging way to test your coding knowledge and skills. We offer a wide range of quizzes covering various programming languages, algorithms, data structures, and more. `,
+  `Welcome to Sahayak, An AI-driven learning platform designed to create personalized educational journeys tailored to each student's unique skills, career goals, and interests. It offers interactive multilingual content, including videos, quizzes, and downloadable resources, to enhance learning engagement. Additional features like live Q&A sessions and a notes maker promote active participation.`,
+  
+  `The platform also includes multiplayer VR labs for vocational training, allowing students to gain hands-on experience in a simulated environment. A multilingual AI chatbot offers instant support and personalized guidance.`,
 
-  `At Cuizzy, we believe that learning to code should be accessible to everyone, which is why we offer all of our quizzes for free. Whether you're a beginner or an experienced programmer, our quizzes are designed to help you improve your skills and stay up-to-date with the latest trends in the coding domain.`,
-
-  `We offer a variety of quizzes that are designed to challenge you at every level. From multiple-choice questions to coding challenges, our quizzes are designed to test your knowledge in a fun and engaging way. Cuizzy provide immediate feedback on users answers, helping them to learn and improve their knowledge. For that reason Cuizzy can be used for educational purposes or just for entertainment. And most interestingly all of these features are accessible for free. In addition to providing free coding quizzes, Cuizzy also offers a wealth of resources for coders of all levels. Our website features helpful tutorials, tips and tricks, and guides to help you improve your coding skills. We believe that everyone should have access to quality coding education, regardless of their experience or financial situation.`,
+  `We offer a wide range of quizzes designed to challenge learners at every level. From multiple-choice questions to coding challenges, our quizzes are crafted to test your knowledge in a fun and engaging way. Sahayak provides instant feedback on user responses, aiding in learning and improvement. As such, Sahayak is perfect for both educational purposes and entertainment. Best of all, these features are available for free.`,
 
   `Our team of expert coders and educators work tirelessly to create and curate high-quality quizzes and resources that are both challenging and informative. Our quizzes are updated regularly to reflect the latest trends and technologies in the coding domain, so you can be sure that you're learning the most up-to-date information.`,
 
-  `Thank you for choosing Cuizzy as your go-to source for free coding quizzes and resources. We hope you enjoy learning and growing with us!`
+  `Thank you for choosing Sahayak as your go-to source for free coding quizzes and resources. We hope you enjoy learning and growing with us!`
 ];
 
 function About() {

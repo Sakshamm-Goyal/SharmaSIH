@@ -10,8 +10,8 @@ const reasons = [
   },
   {
     image: 'smart_display',
-    headingKey: 'video_content',
-    descriptionKey: 'video_content_description',
+    headingKey: 'VR_Based_Video_Content',
+    descriptionKey: 'VR_Based_Video_Content_description',
   },
   {
     image: 'verified_user',
@@ -20,8 +20,8 @@ const reasons = [
   },
   {
     image: 'schedule',
-    headingKey: 'flexible_learning_paths',
-    descriptionKey: 'flexible_learning_paths_description',
+    headingKey: 'apprentenceship_&_job_offers',
+    descriptionKey: 'apprentenceship_&_job_offers_description',
   },
 ];
 
@@ -52,7 +52,7 @@ function BasicInfo() {
       </div>
       <div className="mb-20 w-[85%]">
         <p className="mb-20 text-center text-4xl font-bold uppercase tracking-wider lg:text-5xl">
-          {translate('why_cuizzy')}
+          {translate('why sahayak ?')}
         </p>
         <div className="grid grid-cols-1 place-content-center gap-x-10 gap-y-16 xl:grid-cols-2 2xl:grid-cols-4">
           {reasons.map((reason, index) => (

@@ -105,14 +105,14 @@ function Home() {
 
       <div className="mx-8 flex flex-col items-center justify-center gap-2">
         <p className="page-heading my-8 mt-10 text-center text-3xl font-bold uppercase text-black dark:text-white md:text-5xl">
-          {translate("learn_by_doing")}
+          {translate("Learn by doing")}
           <span className="my-1 block text-center text-primary drop-shadow-2xl">
-            {translate("experience_education")}
+            {translate(" Experience education in the ")}
           </span>
-          {translate("the_real_world")}
+          {translate("real world.")}
         </p>
         <p className="rounded-lg bg-primary px-4 py-2 text-center font-semibold uppercase tracking-wide text-black md:text-xl">
-          {translate("transformative_education")}
+          {translate("Transformative education for a transformative India.")}
         </p>
       </div>
 

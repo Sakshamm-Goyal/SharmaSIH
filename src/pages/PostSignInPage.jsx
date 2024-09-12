@@ -29,7 +29,7 @@ function Recommendation() {
           <style jsx>{`
             .loader {
               border: 4px solid rgba(0, 0, 0, 0.1);
-              border-left: 4px solid ${'rgb(24,160,139)'};
+              border-left: 4px solid ${'rgb(16, 252, 0)'};
               border-radius: 50%;
               width: 40px;
               height: 40px;
@@ -49,7 +49,7 @@ function Recommendation() {
           <div className="flex flex-col items-center">
             <button
               onClick={() => handleClick('Biology')}
-              className="flex items-center gap-2 text-xl font-semibold mb-4 px-6 py-2 bg-[rgb(24,160,139)] text-white rounded-lg shadow-md hover:bg-[rgba(24,160,139,0.8)]"
+              className="flex items-center gap-2 text-xl font-semibold mb-4 px-6 py-2 bg-[rgb(16,252,0)] text-white rounded-lg shadow-md hover:bg-[rgba(24,160,139,0.8)]"
             >
               🌿 Biology
             </button>
@@ -178,17 +178,18 @@ function PostSignInPage() {
         </p>
       </div>
 
-      <div className="mt-8 w-[90%] max-w-2xl rounded-lg bg-white p-10 shadow-lg">
-        <div className="text-black dark:text-white">
+      <div className="mt-8 w-11/12 max-w-2xl rounded-lg bg-[#001f3f] p-10 shadow-xl shadow-[#0a0a23]">
+  <div className="text-white">
+
           {step === 1 && (
             <div className="flex flex-col gap-4 items-center">
-              <p className="text-lg font-medium text-black dark:text-black">Select Your Age Group:</p>
+              <p className="text-lg font-large text-white dark:text-white">Select Your Age Group:</p>
               <div className="flex gap-4">
                 <button
                   className={`px-6 py-3 rounded-md ${
                     answers.ageGroup === '<18'
-                      ? 'bg-[rgb(24,160,139)] text-white'
-                      : 'bg-gray-200 text-black dark:bg-gray-700 dark:text-white hover:bg-[rgba(24,160,139,0.1)]'
+                      ? 'bg-[rgb(4,231,98)] text-white'
+                      : 'bg-gray-200 text-black dark:bg-gray-700 dark:text-white hover:bg-[rgba(16,252,0,0.1)]'
                   }`}
                   onClick={() => handleSelect('ageGroup', '<18')}
                 >
@@ -197,7 +198,7 @@ function PostSignInPage() {
                 <button
                   className={`px-6 py-3 rounded-md ${
                     answers.ageGroup === '18-22'
-                      ? 'bg-[rgb(24,160,139)] text-white'
+                      ? 'bg-[rgb(4,231,98)] text-white'
                       : 'bg-gray-200 text-black dark:bg-gray-700 dark:text-white hover:bg-[rgba(24,160,139,0.1)]'
                   }`}
                   onClick={() => handleSelect('ageGroup', '18-22')}
@@ -207,7 +208,7 @@ function PostSignInPage() {
                 <button
                   className={`px-6 py-3 rounded-md ${
                     answers.ageGroup === '>22'
-                      ? 'bg-[rgb(24,160,139)] text-white'
+                      ? 'bg-[rgb(4,231,98)] text-white'
                       : 'bg-gray-200 text-black dark:bg-gray-700 dark:text-white hover:bg-[rgba(24,160,139,0.1)]'
                   }`}
                   onClick={() => handleSelect('ageGroup', '>22')}
@@ -220,12 +221,12 @@ function PostSignInPage() {
 
           {step === 2 && (
             <div className="flex flex-col gap-4 items-center">
-              <p className="text-lg font-medium text-black dark:text-black">Select Your Gender:</p>
+              <p className="text-lg font-large text-black dark:text-white">Select Your Gender:</p>
               <div className="flex gap-4">
                 <button
                   className={`px-6 py-3 rounded-md ${
                     answers.gender === 'Male'
-                      ? 'bg-[rgb(24,160,139)] text-white'
+                      ? 'bg-[rgb(4,231,98)] text-white'
                       : 'bg-gray-200 text-black dark:bg-gray-700 dark:text-white hover:bg-[rgba(24,160,139,0.1)]'
                   }`}
                   onClick={() => handleSelect('gender', 'Male')}
@@ -235,7 +236,7 @@ function PostSignInPage() {
                 <button
                   className={`px-6 py-3 rounded-md ${
                     answers.gender === 'Female'
-                      ? 'bg-[rgb(24,160,139)] text-white'
+                      ? 'bg-[rgb(4,231,98)] text-white'
                       : 'bg-gray-200 text-black dark:bg-gray-700 dark:text-white hover:bg-[rgba(24,160,139,0.1)]'
                   }`}
                   onClick={() => handleSelect('gender', 'Female')}
@@ -245,7 +246,7 @@ function PostSignInPage() {
                 <button
                   className={`px-6 py-3 rounded-md ${
                     answers.gender === 'Other'
-                      ? 'bg-[rgb(24,160,139)] text-white'
+                      ? 'bg-[rgb(4,231,98)] text-white'
                       : 'bg-gray-200 text-black dark:bg-gray-700 dark:text-white hover:bg-[rgba(24,160,139,0.1)]'
                   }`}
                   onClick={() => handleSelect('gender', 'Other')}
@@ -258,12 +259,12 @@ function PostSignInPage() {
 
           {step === 3 && (
             <div className="flex flex-col gap-4 items-center">
-              <p className="text-lg font-medium text-black dark:text-black">What is Your Current Education Level?</p>
+              <p className="text-lg font-large text-black dark:text-white">What is Your Current Education Level?</p>
               <div className="flex gap-4">
                 <button
                   className={`px-6 py-3 rounded-md ${
                     answers.educationLevel === 'High School'
-                      ? 'bg-[rgb(24,160,139)] text-white'
+                      ? 'bg-[rgb(4,231,98)] text-white'
                       : 'bg-gray-200 text-black dark:bg-gray-700 dark:text-white hover:bg-[rgba(24,160,139,0.1)]'
                   }`}
                   onClick={() => handleSelect('educationLevel', 'High School')}
@@ -273,7 +274,7 @@ function PostSignInPage() {
                 <button
                   className={`px-6 py-3 rounded-md ${
                     answers.educationLevel === 'Undergraduate'
-                      ? 'bg-[rgb(24,160,139)] text-white'
+                      ? 'bg-[rgb(4,231,98)] text-white'
                       : 'bg-gray-200 text-black dark:bg-gray-700 dark:text-white hover:bg-[rgba(24,160,139,0.1)]'
                   }`}
                   onClick={() => handleSelect('educationLevel', 'Undergraduate')}
@@ -283,7 +284,7 @@ function PostSignInPage() {
                 <button
                   className={`px-6 py-3 rounded-md ${
                     answers.educationLevel === 'Postgraduate'
-                      ? 'bg-[rgb(24,160,139)] text-white'
+                      ? 'bg-[rgb(4,231,98)] text-white'
                       : 'bg-gray-200 text-black dark:bg-gray-700 dark:text-white hover:bg-[rgba(24,160,139,0.1)]'
                   }`}
                   onClick={() => handleSelect('educationLevel', 'Postgraduate')}
@@ -296,12 +297,12 @@ function PostSignInPage() {
 
           {step === 4 && (
             <div className="flex flex-col gap-4 items-center">
-              <p className="text-lg font-medium text-black dark:text-black">What Stage Are You in Your Career?</p>
+              <p className="text-lg font-large text-black dark:text-white">What Stage Are You in Your Career?</p>
               <div className="flex gap-4">
                 <button
                   className={`px-6 py-3 rounded-md ${
                     answers.careerStage === 'Student'
-                      ? 'bg-[rgb(24,160,139)] text-white'
+                      ? 'bg-[rgb(4,231,98)] text-white'
                       : 'bg-gray-200 text-black dark:bg-gray-700 dark:text-white hover:bg-[rgba(24,160,139,0.1)]'
                   }`}
                   onClick={() => handleSelect('careerStage', 'Student')}
@@ -311,7 +312,7 @@ function PostSignInPage() {
                 <button
                   className={`px-6 py-3 rounded-md ${
                     answers.careerStage === 'Entry Level'
-                      ? 'bg-[rgb(24,160,139)] text-white'
+                      ? 'bg-[rgb(4,231,98)] text-white'
                       : 'bg-gray-200 text-black dark:bg-gray-700 dark:text-white hover:bg-[rgba(24,160,139,0.1)]'
                   }`}
                   onClick={() => handleSelect('careerStage', 'Entry Level')}
@@ -321,7 +322,7 @@ function PostSignInPage() {
                 <button
                   className={`px-6 py-3 rounded-md ${
                     answers.careerStage === 'Mid Career'
-                      ? 'bg-[rgb(24,160,139)] text-white'
+                      ? 'bg-[rgb(4,231,98)] text-white'
                       : 'bg-gray-200 text-black dark:bg-gray-700 dark:text-white hover:bg-[rgba(24,160,139,0.1)]'
                   }`}
                   onClick={() => handleSelect('careerStage', 'Mid Career')}
@@ -331,7 +332,7 @@ function PostSignInPage() {
                 <button
                   className={`px-6 py-3 rounded-md ${
                     answers.careerStage === 'Senior Level'
-                      ? 'bg-[rgb(24,160,139)] text-white'
+                      ? 'bg-[rgb(4,231,98)] text-white'
                       : 'bg-gray-200 text-black dark:bg-gray-700 dark:text-white hover:bg-[rgba(24,160,139,0.1)]'
                   }`}
                   onClick={() => handleSelect('careerStage', 'Senior Level')}
@@ -344,14 +345,14 @@ function PostSignInPage() {
 
           {step === 5 && (
             <div className="flex flex-col gap-4 items-center">
-              <p className="text-lg font-medium text-black dark:text-black">Select Your Interests:</p>
+              <p className="text-lg font-large text-black dark:text-white">Select Your Interests:</p>
               <div className="flex flex-wrap gap-4">
                 {sortedInterests.map((interest) => (
                   <button
                     key={interest}
                     className={`px-6 py-3 rounded-md ${
                       answers.interests.includes(interest)
-                        ? 'bg-[rgb(24,160,139)] text-white'
+                        ? 'bg-[rgb(4,231,98)] text-white'
                         : 'bg-gray-200 text-black dark:bg-gray-700 dark:text-white hover:bg-[rgba(24,160,139,0.1)]'
                     }`}
                     onClick={() => toggleInterest(interest)}
@@ -375,7 +376,7 @@ function PostSignInPage() {
           )}
           <button
             className={`px-6 py-3 rounded-md ${
-              isStepValid() ? 'bg-[rgb(24,160,139)] text-white' : 'bg-gray-200 text-black dark:bg-gray-700 dark:text-white'
+              isStepValid() ? 'bg-[rgb(4,231,98)] text-white' : 'bg-gray-200 text-black dark:bg-gray-700 dark:text-white'
             }`}
             onClick={() => {
               if (step === 5) {

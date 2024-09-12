@@ -81,7 +81,7 @@
         "noq": 2
       },
       "17": {
-        "topicID": "Heart",
+        "topicID": "heart",
         "title": "Human Heart",
         "noq": 5
       },
@@ -1410,7 +1410,7 @@
           }
         ]
       },
-        "Heart": {
+        "heart": {
           "questions": [
             {
               "title": "What is the main function of the heart?",

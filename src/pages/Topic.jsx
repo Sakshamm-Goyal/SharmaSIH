@@ -1,8 +1,8 @@
-import { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import './Topic.css'; // Ensure this file contains the necessary styles
 import { FiPlus } from 'react-icons/fi';
 import { Button } from "../components/atoms/MovingBorder";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { FaVrCardboard } from 'react-icons/fa'; // Import VR icon
 import VrParent from '../components/atoms/VrParent'; // Import the VrPopup component
 
@@ -10,36 +10,46 @@ function Topic() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [activeTab, setActiveTab] = useState('overview');
   const [openSections, setOpenSections] = useState([]);
-  const [notes, setNotes] = useState([]);
+  const [isVrPopupOpen, setIsVrPopupOpen] = useState(false); // State for VR popup visibility
+  const { topicName } = useParams();
+  const navigate = useNavigate();
+  const [data, setData] = useState(null);
   const [newNote, setNewNote] = useState('');
-  const [questions, setQuestions] = useState([]);
   const [newQuestion, setNewQuestion] = useState('');
   const [newAnswer, setNewAnswer] = useState('');
-  const [isVrPopupOpen, setIsVrPopupOpen] = useState(false); // State for VR popup visibility
-  const videoRef = useRef(null);
-  const playerRef = useRef(null);
-  const navigate = useNavigate();
+  const [selectedOption, setSelectedOption] = useState(null);
+  const [correctOption, setCorrectOption] = useState(null);
 
   useEffect(() => {
-    window.onYouTubeIframeAPIReady = () => {
-      playerRef.current = new window.YT.Player(videoRef.current, {
-        events: {
-          onReady: () => {
-            console.log('YouTube Player Ready');
-          },
-        },
-      });
-    };
-  }, []);
+    // Fetch topic data based on topicName
+    fetch(`/data.json`) // Adjust this URL if fetching from an API
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return response.json();
+      })
+      .then((jsonData) => {
+        const topicData = jsonData.find((item) => item.id === topicName);
+        if (topicData) {
+          setData(topicData);
+        } else {
+          console.error(`No matching topic data found for topicName: ${topicName}`);
+        }
+      })
+      .catch((error) => console.error('Error fetching data:', error));
+  }, [topicName]);
 
   const handleSidebarToggle = () => {
     setIsSidebarOpen(!isSidebarOpen);
   };
 
   const handleTimestampClick = (timestamp) => {
-    if (playerRef.current) {
-      playerRef.current.seekTo(timestamp, true);
-    }
+    const iframe = document.getElementById('topic-video');
+    iframe.contentWindow.postMessage(
+      JSON.stringify({ event: 'command', func: 'seekTo', args: [timestamp, true] }),
+      '*'
+    );
   };
 
   const toggleSection = (section) => {
@@ -51,7 +61,7 @@ function Topic() {
   };
 
   const handleStartQuiz = () => {
-    navigate('/quiz/Heart');
+    navigate(`/quiz/${data.id}`);
   };
 
   const handleVrClick = () => {
@@ -63,24 +73,33 @@ function Topic() {
   };
 
   const handleAddNote = () => {
-    if (newNote.trim()) {
-      setNotes([...notes, { text: newNote, timestamp: Date.now() }]);
+    if (newNote.trim() && data) {
+      const updatedNotes = [...data.notes, { text: newNote, timestamp: Date.now() }];
+      setData({ ...data, notes: updatedNotes });
       setNewNote('');
     }
   };
 
   const handleAddQuestion = () => {
-    if (newQuestion.trim()) {
-      setQuestions([...questions, { question: newQuestion, answer: '' }]);
+    if (newQuestion.trim() && data) {
+      const updatedQuestions = [...data.qna, { question: newQuestion, answer: '' }];
+      setData({ ...data, qna: updatedQuestions });
       setNewQuestion('');
     }
   };
 
   const handleAnswerQuestion = (index) => {
-    const updatedQuestions = [...questions];
-    updatedQuestions[index].answer = newAnswer;
-    setQuestions(updatedQuestions);
-    setNewAnswer('');
+    if (data) {
+      const updatedQuestions = [...data.qna];
+      updatedQuestions[index].answer = newAnswer;
+      setData({ ...data, qna: updatedQuestions });
+      setNewAnswer('');
+    }
+  };
+
+  const handleOptionSelect = (option, correctOption) => {
+    setSelectedOption(option);
+    setCorrectOption(correctOption);
   };
 
   return (
@@ -100,58 +119,40 @@ function Topic() {
                 onClick={handleVrClick} // Handle VR button click
               >
                 <FaVrCardboard className="vr-icon" />
-                &nbsp;
-                VR
+                &nbsp; VR
               </Button>
             </div>
           </div>
           <ul className="timestamp-list">
-            <li className="section">
-              <div className="section-header" onClick={() => toggleSection('intro1')}>
-                <span>Introduction 1</span>
-                <FiPlus className={`add-icon ${openSections.includes('intro1') ? 'rotated' : ''}`} />
-              </div>
-              {openSections.includes('intro1') && (
-                <div className="section-content">
-                  <p onClick={() => handleTimestampClick(0)}>00:00 - Introduction 1</p>
-                  <div className="quiz-section">
-                    <h3>Quiz</h3>
-                    <div className="quiz-card">
-                      <p>What is the main topic of this section?</p>
-                      <ul>
-                        <li>Introduction</li>
-                        <li>Main Concepts</li>
-                        <li>Detailed Analysis</li>
-                        <li>Conclusion</li>
-                      </ul>
-                    </div>
-                  </div>
+            {data?.timestamps?.map((timestamp, index) => (
+              <li key={index} className="section">
+                <div className="section-header" onClick={() => toggleSection(timestamp.section)}>
+                  <span>{timestamp.section}</span>
+                  <FiPlus className={`add-icon ${openSections.includes(timestamp.section) ? 'rotated' : ''}`} />
                 </div>
-              )}
-            </li>
-            <li className="section">
-              <div className="section-header" onClick={() => toggleSection('intro2')}>
-                <span>Introduction 2</span>
-                <FiPlus className={`add-icon ${openSections.includes('intro2') ? 'rotated' : ''}`} />
-              </div>
-              {openSections.includes('intro2') && (
-                <div className="section-content">
-                  <p onClick={() => handleTimestampClick(0)}>00:00 - Introduction 2</p>
-                  <div className="quiz-section">
-                    <h3>Quiz</h3>
-                    <div className="quiz-card">
-                      <p>What is the main topic of this section?</p>
-                      <ul>
-                        <li>Introduction</li>
-                        <li>Main Concepts</li>
-                        <li>Detailed Analysis</li>
-                        <li>Conclusion</li>
-                      </ul>
-                    </div>
+                {openSections.includes(timestamp.section) && (
+                  <div className="section-content">
+                    {/* Display Quiz Question and Options if available */}
+                    {timestamp.quiz && (
+                      <div className="quiz-section mt-2">
+                        <p className="quiz-question font-bold">{timestamp.quiz.question}</p>
+                        <ul className="quiz-options list-disc pl-5">
+                          {timestamp.quiz.options.map((option, optIndex) => (
+                            <li
+                              key={optIndex}
+                              className={`quiz-option ${selectedOption === option ? (option === correctOption ? 'correct' : 'incorrect') : ''}`}
+                              onClick={() => handleOptionSelect(option, timestamp.quiz.correctAnswer)}
+                            >
+                              {option}
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    )}
                   </div>
-                </div>
-              )}
-            </li>
+                )}
+              </li>
+            ))}
           </ul>
           <div className="start-quiz-container">
             <Button
@@ -176,9 +177,9 @@ function Topic() {
         {/* Main Video */}
         <div className="relative w-full h-[70%]">
           <iframe
-            ref={videoRef}
-            title="Learn the Topic"
-            src="https://www.youtube.com/embed/jU9w6w8LwqM?enablejsapi=1"
+            id="topic-video"
+            title={data?.video?.title || 'Learn the Topic'}
+            src={data?.video?.link }
             frameBorder="0"
             allow="autoplay; encrypted-media"
             allowFullScreen
@@ -188,97 +189,75 @@ function Topic() {
 
         {/* Navigation Bar for Tabs */}
         <nav className="mt-3 flex w-full justify-around border-b">
-          <button
-            className={`py-2 px-4 ${activeTab === 'overview' ? 'border-b-2 border-blue-500' : ''}`}
-            onClick={() => setActiveTab('overview')}
-          >
-            Overview
-          </button>
-          <button
-            className={`py-2 px-4 ${activeTab === 'notes' ? 'border-b-2 border-blue-500' : ''}`}
-            onClick={() => setActiveTab('notes')}
-          >
-            Notes
-          </button>
-          <button
-            className={`py-2 px-4 ${activeTab === 'review' ? 'border-b-2 border-blue-500' : ''}`}
-            onClick={() => setActiveTab('review')}
-          >
-            Review
-          </button>
-          <button
-            className={`py-2 px-4 ${activeTab === 'qna' ? 'border-b-2 border-blue-500' : ''}`}
-            onClick={() => setActiveTab('qna')}
-          >
-            Q&A
-          </button>
+          {data?.tabs?.map((tab) => (
+            <button
+              key={tab}
+              className={`py-2 px-4 ${activeTab === tab ? 'border-b-2 border-blue-500' : ''}`}
+              onClick={() => setActiveTab(tab)}
+            >
+              {tab.charAt(0).toUpperCase() + tab.slice(1)}
+            </button>
+          ))}
         </nav>
 
         {/* Tab Content */}
         <div className="p-4 w-full">
           {activeTab === 'overview' && (
             <div>
-              <h2 className="text-lg font-bold">Overview</h2>
-              <p>
-                The heart is a muscular organ in humans and other animals that pumps blood through the circulatory system. It is located slightly left of the center of the chest. The heart has four chambers: two upper atria and two lower ventricles. The heart pumps blood through a series of blood vessels, including arteries, veins, and capillaries.
-              </p>
+              <h2 className="text-lg font-bold">{data?.overview?.title || 'Overview'}</h2>
+              <p>{data?.overview?.content}</p>
             </div>
           )}
-
           {activeTab === 'notes' && (
             <div>
               <h2 className="text-lg font-bold">Notes</h2>
-              <ul>
-                {notes.map((note, index) => (
-                  <li key={index} className="note">
+              <textarea
+                className="w-full p-2 border rounded"
+                placeholder="Add a note..."
+                value={newNote}
+                onChange={(e) => setNewNote(e.target.value)}
+              />
+              <button onClick={handleAddNote} className="mt-2 py-1 px-3 bg-blue-500 text-white rounded">
+                Add Note
+              </button>
+              <ul className="mt-4">
+                {data?.notes?.map((note, index) => (
+                  <li key={index} className="py-2">
                     {note.text}
                   </li>
                 ))}
               </ul>
-              <input
-                type="text"
-                value={newNote}
-                onChange={(e) => setNewNote(e.target.value)}
-                placeholder="Add a note"
-              />
-              <button onClick={handleAddNote}>Add Note</button>
             </div>
           )}
-
-          {activeTab === 'review' && (
-            <div>
-              <h2 className="text-lg font-bold">Review</h2>
-              <p>
-                Here, you can review the content covered in this section. Make sure you understand the key concepts before moving on.
-              </p>
-            </div>
-          )}
-
           {activeTab === 'qna' && (
             <div>
               <h2 className="text-lg font-bold">Q&A</h2>
-              <ul>
-                {questions.map((q, index) => (
-                  <li key={index} className="qna-item">
-                    <p><strong>Q:</strong> {q.question}</p>
-                    <p><strong>A:</strong> {q.answer}</p>
+              <textarea
+                className="w-full p-2 border rounded"
+                placeholder="Ask a question..."
+                value={newQuestion}
+                onChange={(e) => setNewQuestion(e.target.value)}
+              />
+              <button onClick={handleAddQuestion} className="mt-2 py-1 px-3 bg-blue-500 text-white rounded">
+                Add Question
+              </button>
+              <ul className="mt-4">
+                {data?.qna?.map((item, index) => (
+                  <li key={index} className="py-2">
+                    <p className="font-bold">{item.question}</p>
+                    <textarea
+                      className="w-full p-2 border rounded"
+                      placeholder="Write an answer..."
+                      value={newAnswer}
+                      onChange={(e) => setNewAnswer(e.target.value)}
+                    />
+                    <button onClick={() => handleAnswerQuestion(index)} className="mt-2 py-1 px-3 bg-blue-500 text-white rounded">
+                      Submit Answer
+                    </button>
+                    <p>{item.answer}</p>
                   </li>
                 ))}
               </ul>
-              <input
-                type="text"
-                value={newQuestion}
-                onChange={(e) => setNewQuestion(e.target.value)}
-                placeholder="Add a question"
-              />
-              <button onClick={handleAddQuestion}>Add Question</button>
-              <input
-                type="text"
-                value={newAnswer}
-                onChange={(e) => setNewAnswer(e.target.value)}
-                placeholder="Add an answer"
-              />
-              <button onClick={() => handleAnswerQuestion(questions.length - 1)}>Add Answer</button>
             </div>
           )}
         </div>
@@ -286,7 +265,7 @@ function Topic() {
 
       {/* VR Popup */}
       {isVrPopupOpen && (
-        <VrParent onClose={handlePopupClose} />
+        <VrParent isOpen={isVrPopupOpen} onClose={handlePopupClose} />
       )}
     </div>
   );

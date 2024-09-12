@@ -1,0 +1,238 @@
+[
+  {
+    "id": "heart",
+    "video": {
+      "title": "Heart Anatomy",
+      "link": "https://www.youtube.com/embed/jU9w6w8LwqM?enablejsapi=1",
+      "vr": "vr-video-link"
+    },
+    "timestamps": [
+      {
+        "section": "Introduction",
+        "time": 0,
+        "quiz": {
+          "question": "What is the main function of the heart?",
+          "options": ["Pumping blood", "Digesting food", "Producing hormones"],
+          "correctAnswer": "Pumping blood"
+        }
+      },
+      {
+        "section": "Anatomy of the Heart",
+        "time": 120,
+        "quiz": {
+          "question": "Which chamber of the heart pumps blood to the lungs?",
+          "options": ["Right atrium", "Left ventricle", "Right ventricle"],
+          "correctAnswer": "Right ventricle"
+        }
+      },
+      {
+        "section": "Blood Circulation",
+        "time": 300,
+        "quiz": {
+          "question": "What type of blood do the veins carry?",
+          "options": ["Oxygenated", "Deoxygenated", "Both"],
+          "correctAnswer": "Deoxygenated"
+        }
+      },
+      {
+        "section": "Electrical System of the Heart",
+        "time": 480,
+        "quiz": {
+          "question": "What is the role of the sinoatrial (SA) node?",
+          "options": ["Pumps blood", "Sets the heart rhythm", "Closes heart valves"],
+          "correctAnswer": "Sets the heart rhythm"
+        }
+      },
+      {
+        "section": "Heart Diseases",
+        "time": 660,
+        "quiz": {
+          "question": "Which condition is characterized by narrowed or blocked coronary arteries?",
+          "options": ["Arrhythmia", "Coronary artery disease", "Heart murmur"],
+          "correctAnswer": "Coronary artery disease"
+        }
+      },
+      {
+        "section": "Preventive Measures",
+        "time": 840,
+        "quiz": {
+          "question": "Which lifestyle change can help reduce heart disease risk?",
+          "options": ["Eating junk food", "Smoking", "Regular exercise"],
+          "correctAnswer": "Regular exercise"
+        }
+      },
+      {
+        "section": "Heart Surgery Overview",
+        "time": 1020,
+        "quiz": {
+          "question": "What is the purpose of bypass surgery?",
+          "options": ["Replace heart valves", "Improve blood flow", "Measure heart rate"],
+          "correctAnswer": "Improve blood flow"
+        }
+      },
+      {
+        "section": "Recovery and Rehabilitation",
+        "time": 1200,
+        "quiz": {
+          "question": "What is a common recommendation during heart recovery?",
+          "options": ["Complete bed rest", "Moderate physical activity", "High-intensity workouts"],
+          "correctAnswer": "Moderate physical activity"
+        }
+      },
+      {
+        "section": "Conclusion",
+        "time": 1380,
+        "quiz": {
+          "question": "What is the most important factor in maintaining heart health?",
+          "options": ["Regular check-ups", "Genetic testing", "Ignoring symptoms"],
+          "correctAnswer": "Regular check-ups"
+        }
+      }
+    ],
+    "tabs": ["overview", "notes", "qna"],
+    "overview": {
+      "title": "Heart Overview",
+      "content": "Detailed information about the heart. The heart is a muscular organ responsible for pumping blood through the blood vessels, delivering oxygen and nutrients to the body’s tissues while removing carbon dioxide and other waste products."
+    },
+    "notes": [
+      {
+        "text": "The heart is a four-chambered organ that pumps blood throughout the body."
+      },
+      {
+        "text": "The left side of the heart pumps oxygenated blood to the body."
+      }
+    ],
+    "qna": [
+      {
+        "question": "What are the main chambers of the heart?",
+        "answer": "The heart has four chambers: two atria and two ventricles."
+      },
+      {
+        "question": "How does the heart receive oxygen?",
+        "answer": "The heart receives oxygen through the coronary arteries."
+      }
+    ]
+  },
+  {
+    "id": "litmus-paper",
+    "vr":"vrlab.mp4",
+    "video": {
+      "title": "Litmus Paper Test",
+      "link": "https://www.youtube.com/embed/Ajfynseiwt0?si=c_W_3j4Yz-WjmaED",
+      "vr": "vr-video-link-litmus"
+    },
+    "timestamps": [
+      {
+        "section": "Introduction",
+        "time": 0,
+        "quiz": {
+          "question": "What is the purpose of litmus paper?",
+          "options": ["Determine pH", "Measure temperature", "Test for presence of starch"],
+          "correctAnswer": "Determine pH"
+        }
+      },
+      {
+        "section": "Types of Litmus Paper",
+        "time": 120,
+        "quiz": {
+          "question": "What colors indicate acidic and basic solutions?",
+          "options": ["Red for basic, Blue for acidic", "Blue for acidic, Red for basic", "Green for both"],
+          "correctAnswer": "Red for acidic, Blue for basic"
+        }
+      },
+      {
+        "section": "Using Litmus Paper",
+        "time": 240,
+        "quiz": {
+          "question": "How should you use litmus paper to test a solution?",
+          "options": ["Dip into solution and compare color change", "Heat the paper", "Shake the solution before testing"],
+          "correctAnswer": "Dip into solution and compare color change"
+        }
+      }
+    ],
+    "tabs": ["overview", "notes", "qna"],
+    "overview": {
+      "title": "Litmus Paper Overview",
+      "content": "Litmus paper is used to test the pH of a solution. It changes color depending on whether the solution is acidic or basic. Red litmus paper turns blue in a basic solution, and blue litmus paper turns red in an acidic solution."
+    },
+    "notes": [
+      {
+        "text": "Litmus paper is a simple and quick way to determine the pH of a solution."
+      },
+      {
+        "text": "It is commonly used in laboratory experiments and educational settings."
+      }
+    ],
+    "qna": [
+      {
+        "question": "What are the limitations of using litmus paper?",
+        "answer": "Litmus paper does not provide an exact pH value and can only indicate whether a solution is acidic or basic."
+      },
+      {
+        "question": "Can litmus paper be used for all types of solutions?",
+        "answer": "Litmus paper is most effective for aqueous solutions and may not work well with non-aqueous solvents."
+      }
+    ]
+  },
+  {
+    "id": "electrical-circuit",
+    "vr":"elec.mp4",
+    "video": {
+      "title": "Electrical Circuits Basics",
+      "link": "https://www.youtube.com/embed/NCUs7msP-II?si=AtoZIafAAgiCSsLK",
+      "vr": "vr-video-link-circuit"
+    },
+    "timestamps": [
+      {
+        "section": "Introduction to Circuits",
+        "time": 0,
+        "quiz": {
+          "question": "What is an electrical circuit?",
+          "options": ["A closed loop through which current flows", "A type of battery", "A conductor of electricity"],
+          "correctAnswer": "A closed loop through which current flows"
+        }
+      },
+      {
+        "section": "Components of a Circuit",
+        "time": 120,
+        "quiz": {
+          "question": "Which component is used to control the flow of current?",
+          "options": ["Resistor", "Capacitor", "Inductor"],
+          "correctAnswer": "Resistor"
+        }
+      },
+      {
+        "section": "Series and Parallel Circuits",
+        "time": 240,
+        "quiz": {
+          "question": "What is the main difference between series and parallel circuits?",
+          "options": ["Series circuits have multiple paths for current flow, while parallel circuits have a single path", "Series circuits have a single path for current flow, while parallel circuits have multiple paths", "Both circuits have the same number of paths"],
+          "correctAnswer": "Series circuits have a single path for current flow, while parallel circuits have multiple paths"
+        }
+      }
+    ],
+    "tabs": ["overview", "notes", "qna"],
+    "overview": {
+      "title": "Electrical Circuits Overview",
+      "content": "Electrical circuits are pathways through which electrical current flows. They consist of various components such as resistors, capacitors, and inductors, and can be arranged in series or parallel configurations."
+    },
+    "notes": [
+      {
+        "text": "In a series circuit, all components are connected end-to-end, forming a single path for current flow."
+      },
+      {
+        "text": "In a parallel circuit, components are connected across common points, providing multiple paths for current flow."
+      }
+    ],
+    "qna": [
+      {
+        "question": "What is Ohm's Law?",
+        "answer": "Ohm's Law states that the current through a conductor between two points is directly proportional to the voltage across the two points and inversely proportional to the resistance."
+      },
+      {
+        "question": "What is the function of a capacitor in a circuit?",
+        "answer": "A capacitor stores and releases electrical energy in a circuit, used for smoothing out fluctuations and filtering signals."
+      }
+    ]
+  }
+]

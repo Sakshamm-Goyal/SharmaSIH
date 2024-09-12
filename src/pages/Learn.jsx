@@ -21,7 +21,7 @@ function Learn() {
         { link: "acids_bases", title: "Acids and Bases: Introduction and Properties", subject: "Chemistry" },
         { link: "ph_scale", title: "The pH Scale: Measuring Acidity and Alkalinity", subject: "Chemistry" },
         { link: "chemical_indicators", title: "Chemical Indicators: Litmus Paper and Others", subject: "Chemistry" },
-        { link: "litmus_paper", title: "Litmus Paper: How It Works and Its Uses", subject: "Chemistry" },
+        { link: "litmus-paper", title: "Litmus Paper: How It Works and Its Uses", subject: "Chemistry" },
         { link: "acid_base_reactions", title: "Acid-Base Reactions: Neutralization and Indicators", subject: "Chemistry" },
 
         // Biology Topics
@@ -32,6 +32,7 @@ function Learn() {
         // Physics Topics
         { link: "laws_of_motion", title: "Newton's Laws of Motion", subject: "Physics" },
         { link: "optics", title: "Optics: The Study of Light", subject: "Physics" },
+        { link: "electrical-circuit", title: "Electrical Circuit: The Study of Circuits", subject: "Physics" },
 
         // Math Topics
         { link: "algebra_basics", title: "Algebra Basics: Understanding Variables and Equations", subject: "Math" },

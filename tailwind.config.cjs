@@ -4,6 +4,7 @@ const flattenColorPalette = require("tailwindcss/lib/util/flattenColorPalette").
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
+
   darkMode: "class", // Enable dark mode with 'class'
   content: ["./src/**/*.{js,jsx,ts,tsx}"], // Specify the paths for content scanning
   theme: {
@@ -54,6 +55,7 @@ module.exports = {
     },
   },
   plugins: [
+
     addVariablesForColors, // Custom plugin to add CSS variables for colors
   ],
 };

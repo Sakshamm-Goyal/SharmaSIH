@@ -1,0 +1,48 @@
+.modal-content {
+    position: fixed;
+    background-color: #333;
+    padding: 20px;
+    border-radius: 8px;
+    max-width: 50%;
+    margin: auto;
+    top: 50%;
+    left: 50%;
+    transform: translate(-100%, 20%); /* Correct centering */
+    overflow-y: auto;
+    max-height: 90vh; /* Prevent overflow */
+  }
+  
+  .overlay {
+    background-color: rgba(0, 0, 0, 0.75);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+  
+  .close-button {
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+  }
+  
+  /* Set a fixed height for the preview area to avoid shifting */
+  .preview-container {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+  }
+  
+  .preview-img {
+    width: 100px;
+    height: 100px; /* Fixed height to prevent content shifting */
+    object-fit: cover;
+  }
+  
+  .media-preview {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+  

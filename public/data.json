@@ -237,7 +237,7 @@
   },
   {
     "id": "industry",
-    "vr": "safety-vr.mp4",
+    "vr": "industry.mp4",
     "video": {
         "title": "Industrial Safety Basics",
         "link": "https://www.youtube.com/embed/abcdef123456",
@@ -295,6 +295,68 @@
         "answer": "A safety audit helps identify potential risks and ensures compliance with safety regulations, contributing to a safer work environment."
       }
     ]
+},
+{
+  "id": "carpentry",
+  "vr": "carpentry.mp4",
+  "video": {
+    "title": "Carpentry Basics",
+    "link": "https://www.youtube.com/embed/carpentry567890",
+    "vr": "vr-video-link-carpentry"
+  },
+  "timestamps": [
+    {
+      "section": "Introduction to Carpentry Tools",
+      "time": 0,
+      "quiz": {
+        "question": "Which tool is essential for measuring wood in carpentry?",
+        "options": ["Measuring tape", "Screwdriver", "Drill"],
+        "correctAnswer": "Measuring tape"
+      }
+    },
+    {
+      "section": "Safety Practices in Carpentry",
+      "time": 120,
+      "quiz": {
+        "question": "Which safety gear is essential when working with saws?",
+        "options": ["Gloves", "Helmet", "Safety goggles"],
+        "correctAnswer": "Safety goggles"
+      }
+    },
+    {
+      "section": "Types of Wood and Their Uses",
+      "time": 300,
+      "quiz": {
+        "question": "Which wood is commonly used for outdoor furniture?",
+        "options": ["Pine", "Teak", "Mahogany"],
+        "correctAnswer": "Teak"
+      }
+    }
+  ],
+  "tabs": ["overview", "notes", "qna"],
+  "overview": {
+    "title": "Carpentry Overview",
+    "content": "Carpentry is a skilled trade that involves cutting, shaping, and installing building materials, particularly wood. It is essential for construction, furniture making, and home improvement projects. Safety and precision are key aspects of this profession."
+  },
+  "notes": [
+    {
+      "text": "Always measure twice and cut once to avoid wasting materials."
+    },
+    {
+      "text": "Ensure tools are sharp and properly maintained to avoid accidents."
+    }
+  ],
+  "qna": [
+    {
+      "question": "What are the key safety tips for using power tools in carpentry?",
+      "answer": "Always wear appropriate PPE like goggles and gloves, keep tools well-maintained, and ensure that you understand the operation of the tool before use."
+    },
+    {
+      "question": "What are some common types of wood used in carpentry?",
+      "answer": "Common types include pine for general construction, oak for furniture, and teak for outdoor furniture due to its durability."
+    }
+  ]
 }
+
 
 ]

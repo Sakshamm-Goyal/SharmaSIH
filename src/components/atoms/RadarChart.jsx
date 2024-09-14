@@ -5,9 +5,8 @@ import { useNavigate } from 'react-router-dom';
 const RadarChart = () => {
   const navigate = useNavigate();
 
-  // Determine the most recommended area based on the highest value in the Recommended Areas series
   const getMostRecommendedArea = () => {
-    const recommendedAreas = [60, 75, 80, 85, 70]; // Data from the Recommended Areas series
+    const recommendedAreas = [60, 75, 80, 85, 70];
     const labels = [
       'Environmental Science',
       'Engineering',
@@ -15,15 +14,12 @@ const RadarChart = () => {
       'Environmental Management',
       'Research & Development',
     ];
-
-    // Find index of the maximum value
     const maxIndex = recommendedAreas.indexOf(Math.max(...recommendedAreas));
     return labels[maxIndex];
   };
 
   const mostRecommendedArea = getMostRecommendedArea();
 
-  // Handler to redirect to /learn when a label is clicked
   const handleLabelClick = (label) => {
     navigate(`/learn`);
   };
@@ -48,7 +44,7 @@ const RadarChart = () => {
     plotOptions: {
       radar: {
         polygons: {
-          strokeColors: '#c0c0c0', // Lighter gray for polygons
+          strokeColors: '#c0c0c0',
           connectorColors: '#c0c0c0',
         },
       },
@@ -56,11 +52,12 @@ const RadarChart = () => {
     series: [
       {
         name: 'Your Strengths',
-        data: [85, 65, 90, 70, 80], // User's strengths in each career path
+        color: '#ff9800',
+        data: [85, 65, 90, 70, 80],
       },
       {
         name: 'Recommended Areas',
-        data: [60, 75, 80, 85, 70], // Suggested areas based on the user's data
+        data: [60, 75, 80, 85, 70],
       },
     ],
     labels: [
@@ -69,20 +66,20 @@ const RadarChart = () => {
       '🧪 Biochemistry',
       '🌍 Environmental Management',
       '🔬 Research & Development',
-    ], // Career paths and guidance types
+    ],
     fill: {
       opacity: 0.4,
-      colors: ['#ff9800', '#00e396'], // Orange and green fill colors for better visibility
+      colors: ['#ff9800', '#00e396'],
     },
     stroke: {
       show: true,
       width: 2,
-      colors: ['#ff5722', '#00e396'], // Deep orange and green stroke colors for contrast
+      colors: ['#ff5722', '#00e396'],
     },
     markers: {
-      size: 6, // Slightly larger markers
+      size: 6,
       colors: ['#fff'],
-      strokeColors: ['#ff5722', '#00e396'], // Matching stroke colors for markers
+      strokeColors: ['#ff5722', '#00e396'],
       strokeWidth: 2,
     },
     yaxis: {
@@ -91,11 +88,11 @@ const RadarChart = () => {
     xaxis: {
       labels: {
         style: {
-          fontSize: '14px', // Adjusted font size
+          fontSize: '14px',
           fontWeight: 'bold',
-          colors: '#000000', // Black color for labels
+          colors: '#000000', // Always black labels
         },
-        offsetY: 20, // General offset for labels
+        offsetY: 20,
       },
     },
     grid: {
@@ -104,7 +101,7 @@ const RadarChart = () => {
     tooltip: {
       enabled: true,
       y: {
-        formatter: (value) => `${value}%`, // Show percentage in tooltips
+        formatter: (value) => `${value}%`,
       },
     },
     annotations: {
@@ -120,10 +117,10 @@ const RadarChart = () => {
           },
           label: {
             text: '🌿 Environmental Science',
-            offsetY: -110, // Push label upwards more
+            offsetY: -110,
             style: {
-              background: 'transparent',
-              color: '#000000',
+              background: 'black',
+              color: '#000000', // Black annotation text
               fontSize: '14px',
               fontWeight: 'bold',
             },
@@ -140,10 +137,10 @@ const RadarChart = () => {
           },
           label: {
             text: '⚛️ Engineering',
-            offsetY: -40, // Adjusted offset
+            offsetY: -40,
             style: {
               background: 'transparent',
-              color: '#000000',
+              color: '#000000', // Black annotation text
               fontSize: '14px',
               fontWeight: 'bold',
             },
@@ -160,10 +157,10 @@ const RadarChart = () => {
           },
           label: {
             text: '🧪 Biochemistry',
-            offsetY: -40, // Adjusted offset
+            offsetY: -40,
             style: {
               background: 'transparent',
-              color: '#000000',
+              color: '#000000', // Black annotation text
               fontSize: '14px',
               fontWeight: 'bold',
             },
@@ -183,7 +180,7 @@ const RadarChart = () => {
             offsetY: -40,
             style: {
               background: 'transparent',
-              color: '#000000',
+              color: '#000000', // Black annotation text
               fontSize: '14px',
               fontWeight: 'bold',
             },
@@ -203,7 +200,7 @@ const RadarChart = () => {
             offsetY: -40,
             style: {
               background: 'transparent',
-              color: '#000000',
+              strokeColor:"black",
               fontSize: '14px',
               fontWeight: 'bold',
             },
@@ -214,9 +211,9 @@ const RadarChart = () => {
   };
 
   return (
-    <div className="w-full max-w-2xl bg-white dark:bg-gray-800 p-8 shadow-lg rounded-lg text-black dark:text-white">
-      <h2 className="text-3xl font-bold mb-4 text-center">Career Path Recommendations</h2>
-      <p className="text-xl mb-6 text-center">Based on Your Strengths</p>
+    <div className="w-full max-w-2xl bg-white dark:bg-gray-200 p-8 shadow-lg rounded-lg text-black dark:text-white">
+      <h2 className="text-3xl font-bold mb-4 text-center text-black">Career Path Recommendations</h2>
+      <p className="text-xl mb-6 text-center text-black">Based on Your Strengths</p>
       <Chart options={chartOptions} series={chartOptions.series} type="radar" height={500} />
       <div className="mt-6 text-center">
         <button

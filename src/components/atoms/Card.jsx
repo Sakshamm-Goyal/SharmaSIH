@@ -19,9 +19,12 @@ import warImage from '../../assets/images/world-war2.jpg'; // Assuming this path
 import photosynthesisImage from '../../assets/images/photosynthesis.jpg'; // Assuming this path for local GIF
 import phImage from '../../assets/images/ph.png'; // Assuming this path for local GIF
 import envImage from '../../assets/images/env.jpg'; // Assuming this path for local GIF
-import industryImage from '../../assets/images/industry.jpg'; // Assuming this path for local GIF
+import industryImage from '../../assets/images/industry.jpeg'; // Assuming this path for local GIF
+import industryGif from '../../assets/images/industry.gif'; // Assuming this path for local GIF
 import acidImage from '../../assets/images/acidbase.jpg'; // Assuming this path for local GIF
 import chemImage from '../../assets/images/chemical.jpg'; // Assuming this path for local GIF
+import carpentImage from '../../assets/images/carpentary.jpeg'; // Assuming this path for local GIF
+import carpentGif from '../../assets/images/carpentary.gif'; // Assuming this path for local GIF
 
 const assets = {
   "heart": {
@@ -82,7 +85,7 @@ const assets = {
   },
   "industry": {
     image: industryImage,
-    gif: null, // No GIF available
+    gif: industryGif, // No GIF available
   },
   "acid_base_reactions": {
     image: acidImage,
@@ -91,6 +94,10 @@ const assets = {
   "chemical_indicators": {
     image: chemImage,
     gif: null, // No GIF available
+  },
+  "carpentry": {
+    image: carpentImage,
+    gif: carpentGif, // No GIF available
   },
   // Add more assets as needed
 };

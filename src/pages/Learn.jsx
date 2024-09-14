@@ -47,6 +47,7 @@ function Learn() {
         // Environmental Management Topic
         { link: "environmental_management", title: translate('environmental_management'), subject: 'environmental' },
         { link: "industry", title: translate('Industry Relevant Skills'), subject: 'modular' },
+        { link: "carpentry", title: translate('Carpentry'), subject: 'modular' },
 
       ]);
       setLoading(false);

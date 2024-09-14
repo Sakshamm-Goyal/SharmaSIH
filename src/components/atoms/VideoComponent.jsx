@@ -4,6 +4,8 @@ import { useParams } from 'react-router-dom';
 // Import videos directly
 import elecVideo from '../../assets/vrvid/elec.mp4';
 import litmusVideo from '../../assets/vrvid/vrlab.mp4';
+import industryVideo from '../../assets/vrvid/industry.mp4';
+import carpentryVideo from '../../assets/vrvid/carpenter.mp4';
 
 const VideoComponent = () => {
   const { topicName } = useParams(); // Extract the `topicName` from the route
@@ -24,6 +26,12 @@ const VideoComponent = () => {
               break;
             case 'litmus.mp4':
               setVideoSrc(litmusVideo);
+              break;
+            case 'industry.mp4':
+              setVideoSrc(industryVideo);
+              break;
+            case 'carpentry.mp4':
+              setVideoSrc(carpentryVideo);
               break;
             default:
               console.error(`No video found for: ${videoData.vr}`);

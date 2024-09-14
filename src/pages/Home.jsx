@@ -8,6 +8,7 @@ import { InfiniteMovingCards } from '../components/atoms/infinite-moving-cards';
 import { StickyScroll } from '../components/atoms/sticky-scroll-reveal'; 
 import { useTranslation } from '../contexts/TranslationContext';
 import { Button } from "../components/atoms/MovingBorder";
+import home1 from "../assets/images/home1.png"
 
 function Home() {
   const { translate, switchLanguage, language } = useTranslation();
@@ -26,32 +27,26 @@ function Home() {
 
   const content = [
     {
-      title: translate("collaborative_editing"),
-      description: translate("collaborative_editing_description"),
+      title: translate("AI-powered Course Recommender "),
+      description: translate("First, register on Solution Sahayak and fill out the provided questionnaire to help us understand your skills, interests, and career aspirations. Once completed, you can experience the AI-powered Course and Career Path Recommender, which provides personalized suggestions tailored to your unique profile. This powerful tool will guide you to explore relevant courses, including a wide range of vocational curricula designed to enhance practical skills and career readiness. Whether you're starting fresh or advancing your career, our recommender will help you make informed decisions about your learning journey."),
       content: (
-        <div className="h-full w-full bg-[linear-gradient(to_bottom_right,var(--cyan-500),var(--emerald-500))] flex items-center justify-center text-white">
-          {translate("collaborative_editing")}
-        </div>
+        <div className="h-full w-full bg-[linear-gradient(to_bottom_right,var(--orange-500),var(--yellow-500))] flex items-center justify-center text-white">
+        {translate("version_control")}
+      </div>
       ),
     },
     {
-      title: translate("real_time_changes"),
-      description: translate("real_time_changes_description"),
+      title: translate("Course Enrollment"),
+      description: translate("After experiencing the AI-powered recommender, proceed to Course Enrollment. Here, you can explore a wide variety of multilingual courses tailored to your interests and career goals. Our platform offers engaging quizzes and assessments throughout the courses to track your progress and scores, ensuring you grasp the material effectively. Dive into a diverse range of subjects and enhance your skills with interactive content designed to cater to different learning styles and language preferences. This seamless enrollment process helps you access the right resources to advance your knowledge and career."),
       content: (
-        <div className="h-full w-full flex items-center justify-center text-white">
-          <img
-            src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fen.wikipedia.org%2Fwiki%2FImage&psig=AOvVaw0CJDIh6DjyQMPODi4shJdK&ust=1726067235049000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCOiRwNXTuIgDFQAAAAAdAAAAABAE"
-            width={300}
-            height={300}
-            className="h-full w-full object-cover"
-            alt={translate("real_time_changes")}
-          />
-        </div>
+        <div className="h-full w-full bg-[linear-gradient(to_bottom_right,var(--orange-500),var(--yellow-500))] flex items-center justify-center text-white">
+        {translate("version_control")}
+      </div>
       ),
     },
     {
-      title: translate("version_control"),
-      description: translate("version_control_description"),
+      title: translate("Virtual Reality (VR) Labs "),
+      description: translate("Next, immerse yourself in our Virtual Reality (VR) Labs, where you can gain hands-on experience through interactive simulations and industrial training. Our VR environment provides a dynamic, immersive learning experience, allowing you to practice real-world skills in a simulated setting. Engage in virtual labs that replicate industry scenarios, receive practical training, and enhance your vocational skills in a controlled, yet realistic environment. This innovative approach bridges the gap between theoretical knowledge and practical application, preparing you for real-world challenges and opportunities."),
       content: (
         <div className="h-full w-full bg-[linear-gradient(to_bottom_right,var(--orange-500),var(--yellow-500))] flex items-center justify-center text-white">
           {translate("version_control")}
@@ -59,8 +54,8 @@ function Home() {
       ),
     },
     {
-      title: translate("running_out_of_content"),
-      description: translate("running_out_of_content_description"),
+      title: translate("Jobs, Apprenticeships, and Mentor Connect"),
+      description: translate("Finally, delve into the Jobs, Apprenticeships, and Mentor Connect sections to further advance your career. Explore a curated selection of job opportunities tailored to your skills and aspirations, helping you find the perfect match in the job market. Discover various apprenticeship programs that offer hands-on experience and real-world training, allowing you to build practical skills alongside industry professionals. Additionally, connect with experienced mentors who can provide valuable guidance, support, and insights as you navigate your career path. These resources are designed to bridge the gap between learning and professional success, ensuring you’re well-equipped to achieve your career goals."),
       content: (
         <div className="h-full w-full bg-[linear-gradient(to_bottom_right,var(--cyan-500),var(--emerald-500))] flex items-center justify-center text-white">
           {translate("running_out_of_content")}

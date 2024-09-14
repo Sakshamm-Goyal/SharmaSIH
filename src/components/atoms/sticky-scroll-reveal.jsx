@@ -29,7 +29,7 @@ export const StickyScroll = ({
   });
 
   const backgroundColors = [
-    "black", // Set background color to black
+    "black",
     "var(--black)",
     "var(--neutral-900)",
   ];
@@ -53,7 +53,7 @@ export const StickyScroll = ({
       className="w-full h-[40rem] overflow-y-auto flex justify-center relative space-x-10 rounded-md p-10"
       ref={ref}
     >
-      <div className="relative flex items-start px-4 w-full max-w-screen-2xl">
+      <div className="relative flex items-start px-4 w-full max-w-screen-2xl bg-transparent">
         <div className="w-full">
           {content.map((item, index) => (
             <div key={item.title + index} className="my-20">
@@ -79,7 +79,7 @@ export const StickyScroll = ({
       <div
         style={{ background: backgroundGradient }}
         className={cn(
-          "hidden lg:block h-[80rem] w-full lg:w-[90%] xl:w-[80rem] rounded-md bg-white sticky top-10 overflow-hidden",
+          "hidden lg:block h-[80rem] w-full lg:w-[70%] xl:w-[60rem] rounded-md bg-white sticky top-10 overflow-hidden",
           contentClassName
         )}
       >

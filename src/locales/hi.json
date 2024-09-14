@@ -53,7 +53,7 @@
   "team_name": "शिबाम सहा",
   "copyright": "©",
   "all_rights_reserved": "सर्वाधिकार सुरक्षित",
-  "site_name": "आपकी साइट का नाम",
+  "site_name": "सहायक",
   "facebook": "फेसबुक",
   "instagram": "इंस्टाग्राम",
   "logo_alt": "आपका लोगो वैकल्पिक पाठ",
@@ -83,6 +83,10 @@
     "no_data_found": "कोई डेटा नहीं मिला!",
     "error_occurred": "एक त्रुटि हुई!",
     "loading": "लोड हो रहा है...",
-    "video_thumbnail": "वीडियो थंबनेल"  
+    "video_thumbnail": "वीडियो थंबनेल",
+    "home": "होम",
+  "courses": "कोर्स",
+  "community": "समुदाय",
+  "about": "हमारे बारे में"
   }
   

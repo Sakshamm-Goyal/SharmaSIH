@@ -234,5 +234,67 @@
         "answer": "A capacitor stores and releases electrical energy in a circuit, used for smoothing out fluctuations and filtering signals."
       }
     ]
-  }
+  },
+  {
+    "id": "industry",
+    "vr": "safety-vr.mp4",
+    "video": {
+        "title": "Industrial Safety Basics",
+        "link": "https://www.youtube.com/embed/abcdef123456",
+        "vr": "vr-video-link-safety"
+    },
+    "timestamps": [
+      {
+        "section": "Introduction to Industrial Safety",
+        "time": 0,
+        "quiz": {
+          "question": "What is the primary goal of industrial safety?",
+          "options": ["Prevent workplace accidents", "Increase production", "Improve worker skills"],
+          "correctAnswer": "Prevent workplace accidents"
+        }
+      },
+      {
+        "section": "Personal Protective Equipment (PPE)",
+        "time": 150,
+        "quiz": {
+          "question": "Which of the following is considered PPE?",
+          "options": ["Safety goggles", "Hammer", "Screwdriver"],
+          "correctAnswer": "Safety goggles"
+        }
+      },
+      {
+        "section": "Fire Safety and Hazardous Materials",
+        "time": 300,
+        "quiz": {
+          "question": "Which type of fire extinguisher is used for electrical fires?",
+          "options": ["Water-based", "CO2", "Foam"],
+          "correctAnswer": "CO2"
+        }
+      }
+    ],
+    "tabs": ["overview", "notes", "qna"],
+    "overview": {
+        "title": "Industrial Safety Overview",
+        "content": "Industrial safety is crucial for preventing workplace accidents and injuries. It involves using protective equipment, following safety protocols, and understanding emergency procedures to ensure a safe working environment."
+    },
+    "notes": [
+      {
+        "text": "Always wear appropriate PPE, such as helmets, gloves, and goggles, to protect against potential hazards."
+      },
+      {
+        "text": "Fire safety protocols must be followed, including knowing the location of extinguishers and how to use them."
+      }
+    ],
+    "qna": [
+      {
+        "question": "What are the common types of hazards in an industrial setting?",
+        "answer": "Common hazards include physical hazards like noise and heat, chemical hazards from exposure to dangerous substances, and ergonomic hazards from poor posture or repetitive motion."
+      },
+      {
+        "question": "What is the importance of a safety audit?",
+        "answer": "A safety audit helps identify potential risks and ensures compliance with safety regulations, contributing to a safer work environment."
+      }
+    ]
+}
+
 ]

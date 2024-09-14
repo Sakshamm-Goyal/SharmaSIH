@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import RadarChart from "../components/atoms/RadarChart"
+import { div } from 'framer-motion/client';
 
 // Recommendation Component
 function Recommendation() {
@@ -21,7 +23,7 @@ function Recommendation() {
   };
 
   return (
-    <div className="fixed inset-0 flex items-center justify-center bg-white dark:bg-gray-900 p-4">
+    <div className="fixed w-5000 inset-0 flex items-center justify-center p-4">
       {loading ? (
         <div className="w-full max-w-lg bg-white dark:bg-gray-800 p-8 shadow-lg rounded-lg text-black dark:text-white flex flex-col items-center">
           <p className="text-xl font-semibold mb-4">Please wait while we recommend you courses...</p>
@@ -43,32 +45,9 @@ function Recommendation() {
           `}</style>
         </div>
       ) : (
-        <div className="w-full max-w-lg bg-white dark:bg-gray-800 p-8 shadow-lg rounded-lg text-black dark:text-white">
-          <h2 className="text-3xl font-bold mb-4 text-center">Congratulations!</h2>
-          <p className="text-xl mb-6 text-center">We Recommend You:</p>
-          <div className="flex flex-col items-center">
-            <button
-              onClick={() => handleClick('Biology')}
-              className="flex items-center gap-2 text-xl font-semibold mb-4 px-6 py-2 bg-[rgb(16,252,0)] text-white rounded-lg shadow-md hover:bg-[rgba(24,160,139,0.8)]"
-            >
-              🌿 Biology
-            </button>
-            <div className="flex justify-between w-full max-w-sm">
-              <button
-                onClick={() => handleClick('Physics')}
-                className="flex items-center gap-2 text-lg font-medium px-4 py-2 bg-gray-200 dark:bg-gray-700 text-black dark:text-white rounded-lg shadow-md hover:bg-gray-300 dark:hover:bg-gray-600"
-              >
-                ⚛️ Physics
-              </button>
-              <button
-                onClick={() => handleClick('Chemistry')}
-                className="flex items-center gap-2 text-lg font-medium px-4 py-2 bg-gray-200 dark:bg-gray-700 text-black dark:text-white rounded-lg shadow-md hover:bg-gray-300 dark:hover:bg-gray-600"
-              >
-                🧪 Chemistry
-              </button>
-            </div>
-          </div>
-        </div>
+    
+          <RadarChart />
+      
       )}
     </div>
   );
@@ -221,7 +200,7 @@ function PostSignInPage() {
 
           {step === 2 && (
             <div className="flex flex-col gap-4 items-center">
-              <p className="text-lg font-large text-black dark:text-white">Select Your Gender:</p>
+              <p className="text-lg font-large text-white dark:text-white">Select Your Gender:</p>
               <div className="flex gap-4">
                 <button
                   className={`px-6 py-3 rounded-md ${
@@ -259,7 +238,7 @@ function PostSignInPage() {
 
           {step === 3 && (
             <div className="flex flex-col gap-4 items-center">
-              <p className="text-lg font-large text-black dark:text-white">What is Your Current Education Level?</p>
+              <p className="text-lg font-large text-white dark:text-white">What is Your Current Education Level?</p>
               <div className="flex gap-4">
                 <button
                   className={`px-6 py-3 rounded-md ${
@@ -297,7 +276,7 @@ function PostSignInPage() {
 
           {step === 4 && (
             <div className="flex flex-col gap-4 items-center">
-              <p className="text-lg font-large text-black dark:text-white">What Stage Are You in Your Career?</p>
+              <p className="text-lg font-large text-white dark:text-white">What Stage Are You in Your Career?</p>
               <div className="flex gap-4">
                 <button
                   className={`px-6 py-3 rounded-md ${
@@ -345,7 +324,7 @@ function PostSignInPage() {
 
           {step === 5 && (
             <div className="flex flex-col gap-4 items-center">
-              <p className="text-lg font-large text-black dark:text-white">Select Your Interests:</p>
+              <p className="text-lg font-large text-white dark:text-white">Select Your Interests:</p>
               <div className="flex flex-wrap gap-4">
                 {sortedInterests.map((interest) => (
                   <button

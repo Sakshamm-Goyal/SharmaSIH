@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { Footer } from '../components';
 import { useGAEventTracker } from '../hooks';
 import Card from "../components/atoms/Card";
-import { useTranslation } from '../contexts/TranslationContext';  // Adjust import based on your setup
+import { useTranslation } from '../contexts/TranslationContext'; // Adjust import based on your setup
 
 function Learn() {
   const { translate } = useTranslation();
@@ -20,29 +20,33 @@ function Learn() {
     setTimeout(() => {
       setData([
         // Chemistry Topics
-        { link: "acids_bases", title: translate('acids_bases'), subject: translate('chemistry') },
-        { link: "ph_scale", title: translate('ph_scale'), subject: translate('chemistry') },
-        { link: "chemical_indicators", title: translate('chemical_indicators'), subject: translate('chemistry') },
-        { link: "litmus-paper", title: translate('litmus_paper'), subject: translate('chemistry') },
-        { link: "acid_base_reactions", title: translate('acid_base_reactions'), subject: translate('chemistry') },
+        { link: "acids_bases", title: translate('acids_bases'), subject: 'chemistry' },
+        { link: "ph_scale", title: translate('ph_scale'), subject: 'chemistry' },
+        { link: "chemical_indicators", title: translate('chemical_indicators'), subject: 'chemistry' },
+        { link: "litmus-paper", title: translate('litmus_paper'), subject: 'chemistry' },
+        { link: "acid_base_reactions", title: translate('acid_base_reactions'), subject: 'chemistry' },
 
         // Biology Topics
-        { link: "cell_structure", title: translate('cell_structure'), subject: translate('biology') },
-        { link: "photosynthesis", title: translate('photosynthesis'), subject: translate('biology') },
-        { link: "human_digestion", title: translate('human_digestion'), subject: translate('biology') },
+        { link: "cell_structure", title: translate('cell_structure'), subject: 'biology' },
+        { link: "photosynthesis", title: translate('photosynthesis'), subject: 'biology' },
+        { link: "human_digestion", title: translate('human_digestion'), subject: 'biology' },
 
         // Physics Topics
-        { link: "laws_of_motion", title: translate('laws_of_motion'), subject: translate('physics') },
-        { link: "optics", title: translate('optics'), subject: translate('physics') },
-        { link: "electrical-circuit", title: translate('electrical_circuit'), subject: translate('physics') },
+        { link: "laws_of_motion", title: translate('laws_of_motion'), subject: 'physics' },
+        { link: "optics", title: translate('optics'), subject: 'physics' },
+        { link: "electrical-circuit", title: translate('electrical_circuit'), subject: 'physics' },
 
         // Math Topics
-        { link: "algebra_basics", title: translate('algebra_basics'), subject: translate('math') },
-        { link: "geometry_shapes", title: translate('geometry_shapes'), subject: translate('math') },
+        { link: "algebra_basics", title: translate('algebra_basics'), subject:'math' },
+        { link: "geometry_shapes", title: translate('geometry_shapes'), subject: 'math' },
 
         // History Topics
-        { link: "ancient_civilizations", title: translate('ancient_civilizations'), subject: translate('history') },
-        { link: "world_war_ii", title: translate('world_war_ii'), subject: translate('history') },
+        { link: "ancient_civilizations", title: translate('ancient_civilizations'), subject: 'history' },
+        { link: "world_war_ii", title: translate('world_war_ii'), subject: 'history'},
+
+        // Environmental Management Topic
+        { link: "environmental_management", title: translate('environmental_management'), subject: 'environmental' },
+        { link: "industry", title: translate('Industry Relevant Skills'), subject: 'modular' },
       ]);
       setLoading(false);
     }, 1000);
@@ -50,10 +54,15 @@ function Learn() {
 
   useEffect(() => {
     if (data.length > 0) {
-      const filteredData = data.filter(item =>
+      console.log('Data:', data); // Debugging
+
+      let filteredData = data.filter(item =>
         (item.subject === selectedSubject || selectedSubject === 'All') &&
         item.title.toLowerCase().includes(searchTerm.toLowerCase())
       );
+
+      console.log('Filtered Data:', filteredData); // Debugging
+
       const shuffledArray = [...filteredData];
       for (let i = shuffledArray.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
@@ -87,11 +96,14 @@ function Learn() {
             className="p-3 border border-gray-300 rounded-md shadow-sm bg-white text-gray-900 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
           >
             <option value="All" className="text-gray-700">{translate('all_subjects')}</option>
-            <option value="Chemistry" className="text-gray-700">{translate('chemistry')}</option>
-            <option value="Biology" className="text-gray-700">{translate('biology')}</option>
-            <option value="Physics" className="text-gray-700">{translate('physics')}</option>
-            <option value="Math" className="text-gray-700">{translate('math')}</option>
-            <option value="History" className="text-gray-700">{translate('history')}</option>
+            <option value="chemistry" className="text-gray-700">{translate('chemistry')}</option>
+            <option value="modular" className="text-gray-700">{translate('modular')}</option>
+            <option value="Lok Vidya" className="text-gray-700">{translate('lokvidya')}</option>
+            <option value="biology" className="text-gray-700">{translate('biology')}</option>
+            <option value="physics" className="text-gray-700">{translate('physics')}</option>
+            <option value="math" className="text-gray-700">{translate('math')}</option>
+            <option value="history" className="text-gray-700">{translate('history')}</option>
+            <option value="environmental" className="text-gray-700">{translate('environmental')}</option>
           </select>
         </div>
 

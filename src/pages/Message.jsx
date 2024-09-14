@@ -260,7 +260,7 @@ const Message = () => {
   // Function to render the content of the active section
   const renderContent = () => {
     return (
-      <div className='flex-1 p-20 overflow-y-auto bg-gray-900'>
+      <div className='flex-1 p-20 overflow-y-auto bg-black'>
         <div className='flex space-x-6'>
           {/* User Profile Section */}
           <div className='flex-none w-1/4 h-3/4 bg-gray-800 p-4 rounded-lg shadow-md'>
@@ -353,7 +353,7 @@ const Message = () => {
           {/* Search Bar and Create Post Buttons Section */}
           <div className='flex-1 bg-gray-900 p-4'>
             <div className='mb-6'>
-              <div className='flex items-center mb-4 bg-gray-800 p-3 rounded-lg shadow-md'>
+              <div className='flex items-center mb-4 bg-gray-900 p-3 rounded-lg shadow-md'>
                 <input
                   type='text'
                   placeholder='Start a post, try writing with AI'
@@ -526,7 +526,7 @@ const Message = () => {
             onClose={() => setIsModalOpen(false)}
           />
           {/* Contact Cards Section */}
-          <div className='flex-none w-1/4 bg-gray-900 p-4'>
+          <div className='flex-none w-1/4 bg-black p-4'>
             <div className='flex flex-col space-y-4'>
               {contacts.map((contact, index) => (
                 <div

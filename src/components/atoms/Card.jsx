@@ -55,7 +55,7 @@ const Card = ({ id, title }) => {
       <div className="relative z-10 text-white">
         <h1 className="font-bold text-white text-xl md:text-3xl">{title}</h1>
         <p className="font-normal text-white my-4">
-          This card is for some special elements, like displaying background gifs on hover only.
+          This
         </p>
       </div>
     </div>

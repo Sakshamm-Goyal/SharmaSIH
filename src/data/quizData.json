@@ -1504,6 +1504,102 @@
             }
           ]
         },
+        
+          "litmus-paper": {
+            "questions": [
+              {
+                "title": "What is the primary use of litmus paper?",
+                "options": [
+                  {
+                    "title": "To measure temperature"
+                  },
+                  {
+                    "title": "To detect the presence of metals"
+                  },
+                  {
+                    "title": "To test pH levels",
+                    "correct": true
+                  },
+                  {
+                    "title": "To measure viscosity"
+                  }
+                ]
+              },
+              {
+                "title": "What color does blue litmus paper turn in an acidic solution?",
+                "options": [
+                  {
+                    "title": "Red",
+                    "correct": true
+                  },
+                  {
+                    "title": "Blue"
+                  },
+                  {
+                    "title": "Green"
+                  },
+                  {
+                    "title": "Yellow"
+                  }
+                ]
+              },
+              {
+                "title": "What color does red litmus paper turn in a basic (alkaline) solution?",
+                "options": [
+                  {
+                    "title": "Red"
+                  },
+                  {
+                    "title": "Blue",
+                    "correct": true
+                  },
+                  {
+                    "title": "Green"
+                  },
+                  {
+                    "title": "Yellow"
+                  }
+                ]
+              },
+              {
+                "title": "What is the pH range of acidic solutions where litmus paper is effective?",
+                "options": [
+                  {
+                    "title": "pH 1-3",
+                    "correct": true
+                  },
+                  {
+                    "title": "pH 4-6"
+                  },
+                  {
+                    "title": "pH 7-9"
+                  },
+                  {
+                    "title": "pH 10-12"
+                  }
+                ]
+              },
+              {
+                "title": "What is the pH range of basic (alkaline) solutions where litmus paper is effective?",
+                "options": [
+                  {
+                    "title": "pH 1-3"
+                  },
+                  {
+                    "title": "pH 4-6"
+                  },
+                  {
+                    "title": "pH 7-9"
+                  },
+                  {
+                    "title": "pH 10-12",
+                    "correct": true
+                  }
+                ]
+              }
+            ]
+          }
+        ,       
       "OOPS": {
         "questions": [
           {

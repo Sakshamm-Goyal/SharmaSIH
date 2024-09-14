@@ -19,7 +19,7 @@ function CongratulationsModal({ onClose }) {
           alt="Heart I Badge" 
           className="mx-auto mb-4 w-24 h-24" 
         />
-        <p className="text-lg">You just unlocked Heart I badge!</p>
+        <p className="text-lg">You just unlocked Chemistry III badge!</p>
         <button
           className="mt-4 px-4 py-2 rounded bg-primary text-white dark:bg-primary-dark dark:text-black"
           onClick={onClose}

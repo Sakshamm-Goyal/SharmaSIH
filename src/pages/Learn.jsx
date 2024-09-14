@@ -20,8 +20,6 @@ function Learn() {
   useEffect(() => {
     setTimeout(() => {
       setData([
-        // Chemistry Topics
-<<<<<<< HEAD
         { link: "acids_bases", title: translate('acids_bases'), subject: 'chemistry' },
         { link: "ph_scale", title: translate('ph_scale'), subject: 'chemistry' },
         { link: "chemical_indicators", title: translate('chemical_indicators'), subject: 'chemistry' },
@@ -49,45 +47,7 @@ function Learn() {
         // Environmental Management Topic
         { link: "environmental_management", title: translate('environmental_management'), subject: 'environmental' },
         { link: "industry", title: translate('Industry Relevant Skills'), subject: 'modular' },
-=======
-        { link: "acids_bases", title: "Acids and Bases: Introduction and Properties", subject: "Chemistry",   },
-        { link: "ph_scale", title: "The pH Scale: Measuring Acidity and Alkalinity", subject: "Chemistry",  },
-        { link: "chemical_indicators", title: "Chemical Indicators: Litmus Paper and Others", subject: "Chemistry",  },
-        { link: "litmus_paper", title: "Litmus Paper: How It Works and Its Uses", subject: "Chemistry",  },
-        { link: "acid_base_reactions", title: "Acid-Base Reactions: Neutralization and Indicators", subject: "Chemistry", },
-        { link: "acids_bases", title: translate('acids_bases'), subject: translate('chemistry') },
-        { link: "ph_scale", title: translate('ph_scale'), subject: translate('chemistry') },
-        { link: "chemical_indicators", title: translate('chemical_indicators'), subject: translate('chemistry') },
-        { link: "litmus-paper", title: translate('litmus_paper'), subject: translate('chemistry') },
-        { link: "acid_base_reactions", title: translate('acid_base_reactions'), subject: translate('chemistry') },
 
-        // Biology Topics
-        { link: "cell_structure", title: "Cell Structure and Function", subject: "Biology" },
-        { link: "photosynthesis", title: "Photosynthesis: The Process of Energy Conversion", subject: "Biology" },
-        { link: "human_digestion", title: "Human Digestion: How the Digestive System Works", subject: "Biology"  },
-        { link: "cell_structure", title: translate('cell_structure'), subject: translate('biology') },
-        { link: "photosynthesis", title: translate('photosynthesis'), subject: translate('biology') },
-        { link: "human_digestion", title: translate('human_digestion'), subject: translate('biology') },
-
-        // Physics Topics
-        { link: "laws_of_motion", title: "Newton's Laws of Motion", subject: "Physics", },
-        { link: "optics", title: "Optics: The Study of Light", subject: "Physics",  },
-        { link: "laws_of_motion", title: translate('laws_of_motion'), subject: translate('physics') },
-        { link: "optics", title: translate('optics'), subject: translate('physics') },
-        { link: "electrical-circuit", title: translate('electrical_circuit'), subject: translate('physics') },
-
-        // Math Topics
-        { link: "algebra_basics", title: "Algebra Basics: Understanding Variables and Equations", subject: "Math", },
-        { link: "geometry_shapes", title: "Geometry: Shapes and Their Properties", subject: "Math", },
-        { link: "algebra_basics", title: translate('algebra_basics'), subject: translate('math') },
-        { link: "geometry_shapes", title: translate('geometry_shapes'), subject: translate('math') },
-
-        // History Topics
-        { link: "ancient_civilizations", title: "Ancient Civilizations: Mesopotamia and Egypt", subject: "History", },
-        { link: "world_war_ii", title: "World War II: Major Events and Impacts", subject: "History",  },
-        { link: "ancient_civilizations", title: translate('ancient_civilizations'), subject: translate('history') },
-        { link: "world_war_ii", title: translate('world_war_ii'), subject: translate('history') },
->>>>>>> cf7ae0f164b513101bcd13b7dffac43f05c8424f
       ]);
       setLoading(false);
     }, 1000);

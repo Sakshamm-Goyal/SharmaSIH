@@ -30,7 +30,6 @@ function About() {
         Developed with 💚 by &nbsp;
         <a
           className="cursor-pointer hover:underline"
-          href="https://www.s4shibam.com"
           rel="noreferrer"
           target="_blank"
         >

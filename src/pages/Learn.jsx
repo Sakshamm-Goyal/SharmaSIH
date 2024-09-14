@@ -20,7 +20,7 @@ function Learn() {
   useEffect(() => {
     setTimeout(() => {
       setData([
-        { link: "acids_bases", title: translate('acids_bases'), subject: 'chemistry' },
+       
         { link: "ph_scale", title: translate('ph_scale'), subject: 'chemistry' },
         { link: "chemical_indicators", title: translate('chemical_indicators'), subject: 'chemistry' },
         { link: "litmus-paper", title: translate('litmus_paper'), subject: 'chemistry' },
@@ -38,7 +38,7 @@ function Learn() {
 
         // Math Topics
         { link: "algebra_basics", title: translate('algebra_basics'), subject:'math' },
-        { link: "geometry_shapes", title: translate('geometry_shapes'), subject: 'math' },
+        
 
         // History Topics
         { link: "ancient_civilizations", title: translate('ancient_civilizations'), subject: 'history' },

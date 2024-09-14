@@ -8,9 +8,9 @@ function SubNavigationBar({ className }) {
       <NavLink className={({ isActive }) => (isActive ? 'active-page' : null)} to="/">
         <NavButton text="Home" />
       </NavLink>
-      <NavLink className={({ isActive }) => (isActive ? 'active-page' : null)} to="/quizzes">
+      {/* <NavLink className={({ isActive }) => (isActive ? 'active-page' : null)} to="/quizzes">
         <NavButton text="Quizzes" />
-      </NavLink>
+      </NavLink> */}
       <NavLink className={({ isActive }) => (isActive ? 'active-page' : null)} to="/learn">
         <NavButton text="Learn" />
       </NavLink>

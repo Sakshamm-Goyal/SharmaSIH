@@ -7,6 +7,7 @@ import { GoogleGeminiEffect } from "../components/atoms/gemini";
 import { InfiniteMovingCards } from '../components/atoms/infinite-moving-cards'; 
 import { StickyScroll } from '../components/atoms/sticky-scroll-reveal'; 
 import { useTranslation } from '../contexts/TranslationContext';
+import { Button } from "../components/atoms/MovingBorder";
 
 function Home() {
   const { translate, switchLanguage, language } = useTranslation();
@@ -132,10 +133,17 @@ function Home() {
 
       <ContactUs />
       <Footer />
+      <div className="fixed bottom-4 left-4">
+  <button
+    borderRadius="50%" // Making the button circular
+    className="bg-white dark:bg-slate-900 text-black dark:text-white border-neutral-200 dark:border-slate-800 text-xl w-12 h-12 flex items-center justify-center"
+    onClick={switchLanguage} // Handle VR button click
+  >
+    {language === 'en' ? 'ह' : 'E'}
+  </button>
+</div>
 
-      <button onClick={switchLanguage} className="fixed bottom-4 right-4 px-4 py-2 bg-blue-500 text-white rounded">
-        {language === 'en' ? 'Switch to Hindi' : 'Switch to English'}
-      </button>
+
     </div>
   );
 }

@@ -5,9 +5,23 @@ import { cn } from "../../lib/utils";
 import heartImage from '../../assets/images/carpentary.jpeg';  // Assuming this path for local image
 import litmusImage from '../../assets/images/litmus.jpeg'; // Assuming this path for local image
 import circuitImage from '../../assets/images/electrical.jpeg'; // Assuming this path for local image
+import circuitGif from '../../assets/images/electrical.gif'; // Assuming this path for local image
 import heartGif from '../../assets/images/carpentary.gif';  // Assuming this path for local GIF
 import litmusGif from '../../assets/images/litmus.gif'; // Assuming this path for local GIF
-import circuitGif from '../../assets/images/electrical.gif'; // Assuming this path for local GIF
+import algebraImage from '../../assets/images/Algebra.jpg'; // Assuming this path for local GIF
+import civilImage from '../../assets/images/ancient-civil.jpg'; // Assuming this path for local GIF
+import cellImage from '../../assets/images/cell.jpg'; // Assuming this path for local GIF
+import digestImage from '../../assets/images/digest.jpg'; // Assuming this path for local GIF
+import geoImage from '../../assets/images/geo.jpg'; // Assuming this path for local GIF
+import lawImage from '../../assets/images/laws-of-motion.jpg'; // Assuming this path for local GIF
+import opticsImage from '../../assets/images/optics.jpg'; // Assuming this path for local GIF
+import warImage from '../../assets/images/world-war2.jpg'; // Assuming this path for local GIF
+import photosynthesisImage from '../../assets/images/photosynthesis.jpg'; // Assuming this path for local GIF
+import phImage from '../../assets/images/ph.png'; // Assuming this path for local GIF
+import envImage from '../../assets/images/env.jpg'; // Assuming this path for local GIF
+import industryImage from '../../assets/images/industry.jpg'; // Assuming this path for local GIF
+import acidImage from '../../assets/images/acidbase.jpg'; // Assuming this path for local GIF
+import chemImage from '../../assets/images/chemical.jpg'; // Assuming this path for local GIF
 
 const assets = {
   "heart": {
@@ -21,6 +35,62 @@ const assets = {
   "electrical-circuit": {
     image: circuitImage,
     gif: circuitGif,
+  },
+  "algebra_basics": {
+    image: algebraImage,
+    gif: null, // No GIF available
+  },
+  "ancient_civilizations": {
+    image: civilImage,
+    gif: null, // No GIF available
+  },
+  "cell_structure": {
+    image: cellImage,
+    gif: null, // No GIF available
+  },
+  "human_digestion": {
+    image: digestImage,
+    gif: null, // No GIF available
+  },
+  "geography": {
+    image: geoImage,
+    gif: null, // No GIF available
+  },
+  "laws_of_motion": {
+    image: lawImage,
+    gif: null, // No GIF available
+  },
+  "optics": {
+    image: opticsImage,
+    gif: null, // No GIF available
+  },
+  "photosynthesis": {
+    image: photosynthesisImage,
+    gif: null, // No GIF available
+  },
+  "world_war_ii": {
+    image: warImage,
+    gif: null, // No GIF available
+  },
+  "ph_scale": {
+    image: phImage,
+    gif: null, // No GIF available
+  },
+  "environmental_management": {
+    image: envImage,
+    gif: null, // No GIF available
+  },
+  "industry": {
+    image: industryImage,
+    gif: null, // No GIF available
+  },
+  "acid_base_reactions": {
+    image: acidImage,
+    gif: null, // No GIF available
+  },
+  "chemical_indicators": {
+    image: chemImage,
+    gif: null, // No GIF available
   },
   // Add more assets as needed
 };
@@ -55,7 +125,7 @@ const Card = ({ id, title }) => {
       <div className="relative z-10 text-white">
         <h1 className="font-bold text-white text-xl md:text-3xl">{title}</h1>
         <p className="font-normal text-white my-4">
-          This
+          Click on the card to start the course
         </p>
       </div>
     </div>

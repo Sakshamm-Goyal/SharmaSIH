@@ -2,13 +2,14 @@
 import React, { useEffect, useState } from 'react';
 import { useScroll, useTransform } from "framer-motion";
 import { coding, hero } from '../assets';
+import image from "../assets/images/home.png"
 import { BasicInfo, ContactUs, Footer, PopularQuizzes } from '../components';
 import { GoogleGeminiEffect } from "../components/atoms/gemini";
 import { InfiniteMovingCards } from '../components/atoms/infinite-moving-cards'; 
 import { StickyScroll } from '../components/atoms/sticky-scroll-reveal'; 
 import { useTranslation } from '../contexts/TranslationContext';
 import { Button } from "../components/atoms/MovingBorder";
-import home1 from "../assets/images/home1.png"
+import home1 from "../assets/images/saha.png"
 
 function Home() {
   const { translate, switchLanguage, language } = useTranslation();
@@ -94,9 +95,9 @@ function Home() {
     <div className={`mt-36 flex animate-reveal flex-col items-center justify-center xl:mt-28 ${!imageLoaded && 'hidden'}`}>
       <div className="relative mx-auto aspect-[8/5] max-w-xl overflow-hidden px-4 xl:mt-8 2xl:max-w-3xl">
         <div className="absolute left-0 top-0 flex w-full justify-center pr-1">
-          <img alt="" className="w-12 origin-center animate-rotate rounded-md drop-shadow-md md:w-20 md:rounded-xl" src={coding} />
+          {/* <img alt="" className="w-12 origin-center animate-rotate rounded-md drop-shadow-md md:w-20 md:rounded-xl" src={coding} /> */}
         </div>
-        <img alt="" className="object-cover drop-shadow-lg" height={450} src={hero} width={720} onLoad={() => setImageLoaded(true)} />
+        <img alt="" className="object-cover drop-shadow-lg" height={750} src={home1} width={720} onLoad={() => setImageLoaded(true)} />
       </div>
 
       <div className="mx-8 flex flex-col items-center justify-center gap-2">

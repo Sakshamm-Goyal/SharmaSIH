@@ -46,10 +46,10 @@ const Message = () => {
       ]
     },
     {
-      contact: 'Shivansh Singh',
+      contact: 'Shikhar',
       messages: [
         {
-          sender: 'Shivansh Singh',
+          sender: 'Shikhar',
           message: 'Hey, how are you GATE Exam?',
           timestamp: new Date()
         },

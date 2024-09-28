@@ -17,12 +17,8 @@
 
 <br />
 
-Welcome to Sahayak, An AI-driven learning platform designed to create personalized educational journeys tailored to each student's unique skills, career goals, and interests. It offers interactive multilingual content, including videos, quizzes, and downloadable resources, to enhance learning engagement. Additional features like live Q&A sessions and a notes maker promote active participation.,
-  
-  The platform also includes multiplayer VR labs for vocational training, allowing students to gain hands-on experience in a simulated environment. A multilingual AI chatbot offers instant support and personalized guidance.,
+Welcome to Sahayak by Team Error404, An AI-driven learning platform designed to create personalized educational journeys tailored to each student's unique skills, career goals, and interests. It offers interactive multilingual content, including videos, quizzes, and downloadable resources, to enhance learning engagement. Additional features like live Q&A sessions and a notes maker promote active participation.,
+The platform also includes multiplayer VR labs for vocational training, allowing students to gain hands-on experience in a simulated environment. A multilingual AI chatbot offers instant support and personalized guidance.We offer a wide range of quizzes designed to challenge learners at every level. From multiple-choice questions to coding challenges, our quizzes are crafted to test your knowledge in a fun and engaging way. Sahayak provides instant feedback on user responses, aiding in learning and improvement. As such, Sahayak is perfect for both educational purposes and entertainment. Best of all, these features are available for free.
+Our team Error404 comprises of expert coders and educators work tirelessly to create and curate high-quality web and resources that are both challenging and informative.
 
-  We offer a wide range of quizzes designed to challenge learners at every level. From multiple-choice questions to coding challenges, our quizzes are crafted to test your knowledge in a fun and engaging way. Sahayak provides instant feedback on user responses, aiding in learning and improvement. As such, Sahayak is perfect for both educational purposes and entertainment. Best of all, these features are available for free.,
-
-  Our team of expert coders and educators work tirelessly to create and curate high-quality quizzes and resources that are both challenging and informative. Our quizzes are updated regularly to reflect the latest trends and technologies in the coding domain, so you can be sure that you're learning the most up-to-date information.,
-
-  Thank you for choosing Sahayak as your go-to source for free coding quizzes and resources. We hope you enjoy learning and growing with us!
+##Come Join us to Educate and Transform India in a Innovative way

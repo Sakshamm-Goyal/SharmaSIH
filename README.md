@@ -1,9 +1,6 @@
 <p align="center">
-    <a href="https://cuizzy.s4shibam.com">
-        <img alt="Cuizzy" width="100" src="./public/Logo.svg">
-    </a>
+   <img alt="Cuizzy" width="100" src="https://cuizzy.s4shibam.com/assets/Logo-270c8115.svg">    
 </p>
-
 <div align="center">
     <h1>Sahayak</h1>
     <p>Challenge your limits</p>

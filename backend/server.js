@@ -15,3 +15,8 @@ app.use('/api/modules', moduleRoutes); // Register module routes
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+
+const internshipRoutes = require('./routes/internships');
+app.use('/api/internships', internshipRoutes);
+
+const Organization = require('./models/Organization');

@@ -6,7 +6,7 @@ const moduleSchema = new mongoose.Schema({
   videoUrl: { type: String },
   vrLink: { type: String },
   quizLink: { type: String },
-  isCompleted: { type: Boolean, default: false },
+  
 });
 
 module.exports = mongoose.model('Module', moduleSchema);

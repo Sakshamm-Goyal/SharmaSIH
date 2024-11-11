@@ -10,8 +10,8 @@ const userSchema = new mongoose.Schema({
   eligibilityStatus: [
     {
       careerPath: { type: mongoose.Schema.Types.ObjectId, ref: 'CareerPath' },
-      isEligible: { type: Boolean, default: false },
-    },
+      isEligible: { type: Boolean, default: false }
+    }
   ],
   internships: [
     {

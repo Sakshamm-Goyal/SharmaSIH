@@ -1,3 +1,5 @@
+//mongoDB
+
 import {
   GoogleAuthProvider,
   createUserWithEmailAndPassword,
@@ -12,12 +14,14 @@ import {
 import { getDownloadURL, getStorage, ref, uploadBytes } from 'firebase/storage';
 import { createContext, useContext, useEffect, useMemo, useState } from 'react';
 import '../firebase';
+import axios from 'axios';
 
 const AuthContext = createContext();
 
 export function useAuth() {
   return useContext(AuthContext);
 }
+
 
 export function AuthProvider({ children }) {
   const [loading, setLoading] = useState(true);
@@ -36,12 +40,25 @@ export function AuthProvider({ children }) {
   // Sign Up Function
   async function signUp(email, password, userName) {
     const auth = getAuth();
-    await createUserWithEmailAndPassword(auth, email, password);
+    const firebaseUserCredential = await createUserWithEmailAndPassword(auth, email, password);
 
     // Profile Update
     await updateProfile(auth.currentUser, {
       displayName: userName
     });
+
+    // Store user in MongoDB
+    try {
+      await axios.post('/api/users', {
+        uid: firebaseUserCredential.user.uid,
+        email,
+        userName,
+        createdAt: new Date().toISOString()
+      });
+    } catch (error) {
+      console.error('Error storing user in MongoDB:', error);
+      // Optionally: Handle the error (e.g., delete Firebase user if MongoDB storage fails)
+    }
 
     const user = auth.currentUser;
     setCurrentUser({
@@ -54,13 +71,47 @@ export function AuthProvider({ children }) {
     const auth = getAuth();
     const provider = new GoogleAuthProvider();
 
-    await signInWithPopup(auth, provider);
+    try {
+      const result = await signInWithPopup(auth, provider);
+      const user = result.user;
+
+      // Store user in MongoDB
+      try {
+        const response = await axios.post('/api/auth/google-auth', {
+          uid: user.uid,
+          email: user.email,
+          userName: user.displayName,
+          photoURL: user.photoURL,
+          createdAt: new Date().toISOString()
+        });
+        
+        if (response.status === 201 || response.status === 200) {
+          setCurrentUser(user);
+          return user;
+        }
+      } catch (error) {
+        console.error('Error storing Google user in MongoDB:', error);
+        // Optionally handle the error (e.g., show error message to user)
+      }
+    } catch (error) {
+      console.error('Google Sign In Error:', error);
+      throw error;
+    }
   }
 
   // Update User Name Function
   async function updateUserName(displayName) {
     const auth = getAuth();
     await updateProfile(auth.currentUser, { displayName });
+    
+    // Update MongoDB
+    try {
+      await axios.put(`/api/users/${auth.currentUser.uid}`, {
+        userName: displayName
+      });
+    } catch (error) {
+      console.error('Error updating user in MongoDB:', error);
+    }
   }
 
   // Update Profile Image Function
@@ -72,6 +123,15 @@ export function AuthProvider({ children }) {
     const photoURL = await getDownloadURL(fileRef);
 
     await updateProfile(auth.currentUser, { photoURL });
+
+    // Update MongoDB
+    try {
+      await axios.put(`/api/users/${auth.currentUser.uid}`, {
+        photoURL
+      });
+    } catch (error) {
+      console.error('Error updating profile image in MongoDB:', error);
+    }
   }
 
   // Log In Function

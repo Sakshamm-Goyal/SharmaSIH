@@ -29,4 +29,35 @@ const loginUser = async (req, res) => {
   }
 };
 
-module.exports = { registerUser, loginUser };
+const createOrUpdateGoogleUser = async (req, res) => {
+  const { uid, email, userName, photoURL, createdAt } = req.body;
+  
+  try {
+    // Check if user exists
+    let user = await User.findOne({ uid });
+    
+    if (user) {
+      // Update existing user
+      user.name = userName;
+      user.email = email;
+      user.photoURL = photoURL;
+      await user.save();
+      res.json(user);
+    } else {
+      // Create new user
+      user = await User.create({
+        uid,
+        name: userName,
+        email,
+        photoURL,
+        createdAt,
+        password: 'GOOGLE_AUTH' // Since Google Auth doesn't need password
+      });
+      res.status(201).json(user);
+    }
+  } catch (error) {
+    res.status(400).json({ message: 'Error creating/updating Google user', error });
+  }
+};
+
+module.exports = { registerUser, loginUser, createOrUpdateGoogleUser };
